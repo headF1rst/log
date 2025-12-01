@@ -136,25 +136,16 @@ function MyApp({ Component, pageProps }) {
 
 ## 시작하기
 
-1. 의존성 설치:
-   ```
-   npm install
-   ```
+### 필수 요구사항
 
-2. 개발 서버 실행:
-   ```
-   npm run dev
-   ```
+- Node.js: `^18.17.0 || >=20.5.0` (추천: v18.17.0)
+- npm: v8 이상
 
-3. 프로덕션용 빌드:
-   ```
-   npm run build
-   ```
+> **참고**: 이 프로젝트는 Node.js v12와 같은 이전 버전과 호환되지 않습니다. 올바른 Node.js 버전을 사용하고 있는지 확인하세요.
 
-4. 프로덕션 서버 시작:
-   ```
-   npm start
-   ```
+### NVM으로 Node.js 버전 관리하기
+
+NVM(Node Version Manager)을 사용하는 경우, 프로젝트 루트에 있는 `.nvmrc` 파일을 사용하여 올바른 Node.js 버전을 설정할 수 있습니다:
 
 ## ISR 및 Hydration 테스트
 
@@ -168,8 +159,8 @@ ISR 및 Hydration 기능을 테스트하려면:
 6. 재검증 기간(5분) 대기
 7. 페이지를 새로고침하여 업데이트된 콘텐츠 확인
 
-## 더 알아보기
+## 문제 해결
 
-- [Next.js ISR 문서](https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration)
-- [React Query 문서](https://tanstack.com/query/latest/docs/react/overview)
-- [React Query Hydration](https://tanstack.com/query/latest/docs/react/guides/ssr)
+### npm 버전 호환성 오류
+
+다음과 같은 오류가 발생하는 경우:
