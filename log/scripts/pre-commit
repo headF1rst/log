@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# 현재 디렉토리를 프로젝트 루트로 변경
+cd "$(dirname "$0")/.."
+
+# _posts 디렉토리에 변경사항이 있는지 확인
+git_status=$(git status --porcelain)
+if echo "$git_status" | grep -q "_posts/"; then
+  # 변경사항이 있으면 사이트맵 업데이트 스크립트 실행
+  ./scripts/update-sitemap.sh
+fi
+
+# 커밋 계속 진행
+exit 0
