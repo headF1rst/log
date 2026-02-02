@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Disallow: /404
+
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://headf1rst.github.io/log/
+
+# Sitemaps
+Sitemap: https://headf1rst.github.io/log/sitemap.xml

@@ -1,0 +1,134 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><link rel="apple-touch-icon" sizes="180x180" href="https://i.imgur.com/2nHGFTv.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://i.imgur.com/2nHGFTv.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://i.imgur.com/2nHGFTv.png"/><link rel="manifest" href="/site.webmanifest"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><meta name="msapplication-TileColor" content="#da532c"/><meta name="theme-color" content="#ffffff"/><title>[오브젝트] 3장 - 역할, 책임, 협력</title><meta name="title" content="[오브젝트] 3장 - 역할, 책임, 협력"/><meta name="description" content=""/><meta name="keywords" content=""/><meta name="robots" content="index, follow"/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="language" content="Korean"/><meta name="author" content="Sanha Ko"/><meta property="og:title" content="[오브젝트] 3장 - 역할, 책임, 협력"/><meta property="og:url" content="https://headf1rst.github.io/TIL/ko/object3"/><meta property="og:type" content="blog"/><meta property="og:image" content="https://wikibook.co.kr/images/cover/m/9791158391409.png"/><meta property="og:description"/><link rel="alternate" hrefLang="ko" href="https://headf1rst.github.io/TIL/ko/object3"/><link rel="alternate" hrefLang="x-default" href="https://headf1rst.github.io/TIL/ko/object3"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"[오브젝트] 3장 - 역할, 책임, 협력","datePublished":"2022-09-05 10:00","dateModified":"2022-09-05 10:00","author":{"@type":"Person","name":"Sanha Ko"},"description":"","image":"https://wikibook.co.kr/images/cover/m/9791158391409.png","url":"https://headf1rst.github.io/TIL/ko/object3","keywords":"object","inLanguage":"ko-KR","publisher":{"@type":"Organization","name":"headF1rst","logo":{"@type":"ImageObject","url":"https://headf1rst.github.io/TIL/favicon.ico"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://headf1rst.github.io/TIL/ko/object3"}}</script><meta name="next-head-count" content="25"/><link rel="preload" href="/log/_next/static/css/6334d70110c082b8.css" as="style"/><link rel="stylesheet" href="/log/_next/static/css/6334d70110c082b8.css" data-n-g=""/><link rel="preload" href="/log/_next/static/css/38994dd0aed51f22.css" as="style"/><link rel="stylesheet" href="/log/_next/static/css/38994dd0aed51f22.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/log/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/log/_next/static/chunks/webpack-1b0decc0375da57b.js" defer=""></script><script src="/log/_next/static/chunks/framework-2c79e2a64abdb08b.js" defer=""></script><script src="/log/_next/static/chunks/main-6e6d6dc6617c8481.js" defer=""></script><script src="/log/_next/static/chunks/pages/_app-8c13828c4067e960.js" defer=""></script><script src="/log/_next/static/chunks/pages/%5Blang%5D/%5Bid%5D-b57147cfe6c00bdb.js" defer=""></script><script src="/log/_next/static/3EsDHwlg9hdGYAX_g3rvf/_buildManifest.js" defer=""></script><script src="/log/_next/static/3EsDHwlg9hdGYAX_g3rvf/_ssgManifest.js" defer=""></script></head><body><div id="__next"><nav class="flex bg-white sticky top-0 left-0 z-50 justify-between items-center border-b-2 border-gray-100 py-3 md:justify-start md:space-x-10 px-10 sm:px-5 dark:bg-[#0d1117] dark:text-[#c9d1d9] dark:border-gray-600"><div class="flex justify-start"><a href="/log/ko/"><div class="flex items-center gap-2 cursor-pointer"><img src="https://i.imgur.com/2nHGFTv.png" width="40" height="40" alt="블로그 아이콘"/><h1 class="text-lg ">산하개발실록</h1></div></a></div><div class="flex justify-between gap-10 sm:hidden items-center"><a href="/log/ko/"><button class="font-light hover:text-indigo-300 text-base">Home</button></a><a href="/log/ko/category/"><button class="font-light hover:text-indigo-300 text-base">Category</button></a><a href="https://plain-composer-c65.notion.site/29c7640fdf054059b6ea28ed61189bfb" target="_blank" rel="noreferrer" class="hover:text-indigo-300 text-base font-light flex gap-1">About<span class="flex justify-center" style="align-items:center"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path><path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path></svg></span></a><div class="relative"><button class="flex items-center gap-1 hover:text-indigo-300 text-base font-light">🇰🇷<!-- --> <!-- -->한국어</button></div></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="lg:hidden" height="25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path></svg></nav><main class="dark:bg-[#0d1117] h-screen pb-10"><div class="flex flex-col w-3/5 sm:w-5/6 m-auto pt-20 pb-20 gap-10 dark:bg-[#0d1117] dark:text-[#c9d1d9]"><ul id="scroll-spy" class="sm:hidden p-10 fixed top-50 right-0 h-full w-1/5 text-gray-500 dark:text-[#c9d1d9]"></ul><div class="text-5xl font-bold">[오브젝트] 3장 - 역할, 책임, 협력</div><div class="flex flex-col gap-2"><div class="text-base text-gray-600 dark:text-gray-300">2022-09-05 10:00</div><div class="flex flex-wrap gap-2 dark:text-black sm:m-0"><span class="p-1 pl-3 pr-3 rounded-md bg-indigo-100 hover:bg-indigo-200 cursor-pointer transition ease-in-out duration-200 text-sm">object</span></div></div><div class="flex items-center gap-2"><span class="text-sm text-gray-400">🇺🇸 영어로 읽기</span></div><div class="markdown-body" style="font-size:17px"><ul>
+<li>
+<p>객체지향의 본질 : 협력하는 객체들의 공동체를 창조하는 것</p>
+<ul>
+<li>기능 구현을 위해 어떤 협력이 필요하고 협력을 위해 어떤 역할, 책임이 필요한지 파악</li>
+</ul>
+</li>
+<li>
+<p>객체들은 메시지를 주고 받으며 협력한다</p>
+</li>
+<li>
+<p><code node="[object Object]">협력</code></p>
+<ul>
+<li>어플리케이션 기능 구현을 위한 객체들의 상호작용</li>
+<li>다른 객체에 무엇인가를 <strong>요청</strong>하는 것</li>
+</ul>
+</li>
+<li>
+<p><code node="[object Object]">책임</code></p>
+<ul>
+<li>협력에 참여하기 위해 객체가 수행하는 로직</li>
+</ul>
+</li>
+<li>
+<p><code node="[object Object]">역할</code></p>
+<ul>
+<li>협력안에서 수행하는 책임이 모여 객체가 수행하는 역할을 구성</li>
+</ul>
+</li>
+</ul>
+<h2>협력 - 객체 설계를 위한 문맥 제공</h2>
+<p>객체지향 시스템 - <code node="[object Object]">자율적</code>인 객체들의 <code node="[object Object]">공동체</code>
+객체는 고립된 존재가 아닌 협력하는 사회적 존재</p>
+<ul>
+<li>한 객체는 어떤 것이 필요할 때 다른 객체에게 전적으로 <code node="[object Object]">위임</code> 하거나 서로 <code node="[object Object]">협력</code>한다.<!-- -->
+<ul>
+<li>객체는 메시지를 통해서 협력한다</li>
+<li>메시지를 수신한 객체는 <code node="[object Object]">메서드</code>를 실행해 요청에 응답<!-- -->
+<ul>
+<li>객체는 수신받은 메시지를 처리할 방법을 <strong>스스로</strong> 선택한다<!-- -->
+<ul>
+<li>객체는 자율적인 존재</li>
+<li>객체 내부 구현 (상태, 행동)을 캡슐화 하여 자율성을 확보</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>객체 설계시 상태와 행동을 결정하는 기준</h3>
+<p>객체가 참여하고 있는 협력에 따라 객체의 <code node="[object Object]">상태</code> 와 <code node="[object Object]">행동</code>이 정해진다.</p>
+<p>메세지 처리 가능 여부로 협력이 결정 -&gt; 협력이 객체의 행동을 결정 -&gt; 행동이 객체의 상태를 결정</p>
+<p>객체의 상태는 그 객체의 행동에 필요한 정보가 무엇인지로 결정된다.</p>
+<h2>책임</h2>
+<ul>
+<li><code node="[object Object]">책임</code>
+<ul>
+<li>협력에 참여하기 위해 객체가 수행하는 행동</li>
+<li>하는 것과 아는 것, 두 가지 범주</li>
+<li><code node="[object Object]">하는 것</code>
+<ul>
+<li>객체 생성 및 계산 수행 등 스스로 하는것</li>
+<li>다른 객체의 행동을 시작하는 것</li>
+<li>다른 객체의 활동을 제어, 조절하는 것</li>
+</ul>
+</li>
+<li><code node="[object Object]">아는 것</code>
+<ul>
+<li>사적인 정보를 아는것</li>
+<li>관련된 객체를 아는것</li>
+<li>자신이 유도하거나 계산할 수 있는 것에 관해 아는 것</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>책임을 할당하기 위해서는 협력을 정의해야한다.
+협력을 설계하기 위해서는 시스템이 사용자에게 제공하는 기능을 시스템이 담당할 하나의 책임으로 바라보는것에서 시작.</p>
+<ul>
+<li>시스템은 사용자에게 제공해야 하는 <code node="[object Object]">기능</code>인 시스템 책임을 파악</li>
+<li>시스템 책임을 더 작은 책임으로 분할</li>
+<li>분할된 책임을 수행할 수 있는 적절한 객체 (역할)을 찾아 책임 할당</li>
+<li>해당 객체에 책임 할당하여 두 객체가 협력하도록 한다.</li>
+</ul>
+<p>객체가 책임을 수행하게 하는 방법 : 메시지를 전송하는 것
+책임을 할당하는 것 = 메시지의 이름을 결정하는 것</p>
+<h3>메시지가 객체를 결정</h3>
+<ul>
+<li>객체에게 책임을 할당하는 데 필요한 메시지를 먼저 식별</li>
+<li>메시지를 처리할 객체를 선택</li>
+</ul>
+<ol>
+<li>객체가 최소한의 인터페이스를 가질 수 있게 된다</li>
+<li>객체는 충분히 추상적인 인터페이스를 가질 수 있게 된다<!-- -->
+<ul>
+<li>인터페이스는 무엇을 하는지는 표현하지만 어떻게 수행하는지는 노출하면 안된다.</li>
+</ul>
+</li>
+</ol>
+<h3>행동이 상태를 결정</h3>
+<p>협력에 필요한 객체의 행동을 결정하고 나서 상태를 결정
+협력 관계 속에서 다른 객체에게 무엇을 제공하고 무엇을 얻어야 할지를 고민하라</p>
+<h2>역할을 통해 유연하고 재사용 가능한 협력을 얻는다</h2>
+<ul>
+<li>
+<p><code node="[object Object]">역할</code></p>
+<ul>
+<li>다른 것으로 교체할 수 있는 책임의 집합</li>
+<li>다양한 종류의 객체를 수용할 수 있는 일종의 슬롯</li>
+<li>구체적인 객체들의 타입을 캡슐화하는 추상화</li>
+<li>역할을 구현하는 방법<!-- -->
+<ul>
+<li>추상 클래스</li>
+<li>인터페이스</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>협력에 적합한 책임을 수행하는 대상이</p>
+<ul>
+<li>한 종류라면 - 객체</li>
+<li>여러 종류의 객체들이 참여할 수 있다면 - 역할</li>
+</ul>
+</li>
+</ul>
+<p>역할 덕분에 설계의 구성 요소를 추상화 할 수 있다</p>
+<h3>느낀점</h3>
+<p>이번장을 읽으면서, 머리로는 이해한 객체 설계 기법을 어떻게 하면 프로젝트에 적용해 볼 수 있을까 하는 고민을 해보았습니다.</p>
+<p>개인적으로 TDD가 모듈간의 의존도를 낮추고 객체지향적으로 프로그램을 설계하는데 도움을 줄 수 있지 않을까 생각해보았습니다.</p>
+<p>TDD를 기반으로 한다면 의존관계가 높은 테스트 코드 자체를 만들기가 어렵기 때문에 하나의 큰 기능을 작은 단위의 기능으로 쪼게게 됩니다.</p>
+<p>또한 자연스럽게 테스트를 통과하기 위한 메서드를 만든 다음, 메서드를 위한 필드값을 정의하는 순서로 구현이 이루어지기 때문에 행동이 상태를 결정하는 구조로 설계가 이루어 집니다.</p>
+<p>이러한 이유에서 TDD는 테스트 기법이 아닌 설계 기법이라 하지 않을까 생각해보게 되었습니다.</p></div><section></section></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"object3","lang":"ko","title":"[오브젝트] 3장 - 역할, 책임, 협력","category":"object","thumbnail":"https://wikibook.co.kr/images/cover/m/9791158391409.png","tags":"object","date":"2022-09-05 10:00","preview":"\n- 객체지향의 본질 : 협력하는 객체들의 공동체를 창조하는 것\n    - 기능 구현을 위해 어떤 협력이 필요하고 협력을 위해 어떤 역할, 책임이 필요한지 파악\n\n- 객체들은 메시지를 주고 받으며 협력한다\n\n- `협력`\n    - 어플리케이션 기능 구"},"detail":"\n- 객체지향의 본질 : 협력하는 객체들의 공동체를 창조하는 것\n    - 기능 구현을 위해 어떤 협력이 필요하고 협력을 위해 어떤 역할, 책임이 필요한지 파악\n\n- 객체들은 메시지를 주고 받으며 협력한다\n\n- `협력`\n    - 어플리케이션 기능 구현을 위한 객체들의 상호작용\n    - 다른 객체에 무엇인가를 **요청**하는 것\n- `책임`\n    - 협력에 참여하기 위해 객체가 수행하는 로직\n- `역할`\n    - 협력안에서 수행하는 책임이 모여 객체가 수행하는 역할을 구성\n\n## 협력 - 객체 설계를 위한 문맥 제공\n\n객체지향 시스템 - `자율적`인 객체들의 `공동체`\n객체는 고립된 존재가 아닌 협력하는 사회적 존재\n\n- 한 객체는 어떤 것이 필요할 때 다른 객체에게 전적으로 `위임` 하거나 서로 `협력`한다.\n    - 객체는 메시지를 통해서 협력한다\n    - 메시지를 수신한 객체는 `메서드`를 실행해 요청에 응답\n        - 객체는 수신받은 메시지를 처리할 방법을 **스스로** 선택한다\n            - 객체는 자율적인 존재\n            - 객체 내부 구현 (상태, 행동)을 캡슐화 하여 자율성을 확보\n\n### 객체 설계시 상태와 행동을 결정하는 기준\n\n객체가 참여하고 있는 협력에 따라 객체의 `상태` 와 `행동`이 정해진다.\n\n메세지 처리 가능 여부로 협력이 결정 -\u003e 협력이 객체의 행동을 결정 -\u003e 행동이 객체의 상태를 결정\n\n객체의 상태는 그 객체의 행동에 필요한 정보가 무엇인지로 결정된다.\n\n## 책임\n\n- `책임`\n    - 협력에 참여하기 위해 객체가 수행하는 행동\n    - 하는 것과 아는 것, 두 가지 범주\n    - `하는 것`\n        - 객체 생성 및 계산 수행 등 스스로 하는것\n        - 다른 객체의 행동을 시작하는 것\n        - 다른 객체의 활동을 제어, 조절하는 것\n    - `아는 것`\n        - 사적인 정보를 아는것\n        - 관련된 객체를 아는것\n        - 자신이 유도하거나 계산할 수 있는 것에 관해 아는 것\n\n책임을 할당하기 위해서는 협력을 정의해야한다.\n협력을 설계하기 위해서는 시스템이 사용자에게 제공하는 기능을 시스템이 담당할 하나의 책임으로 바라보는것에서 시작.\n\n- 시스템은 사용자에게 제공해야 하는 `기능`인 시스템 책임을 파악\n- 시스템 책임을 더 작은 책임으로 분할\n- 분할된 책임을 수행할 수 있는 적절한 객체 (역할)을 찾아 책임 할당\n- 해당 객체에 책임 할당하여 두 객체가 협력하도록 한다.\n\n객체가 책임을 수행하게 하는 방법 : 메시지를 전송하는 것\n책임을 할당하는 것 = 메시지의 이름을 결정하는 것\n\n### 메시지가 객체를 결정\n\n- 객체에게 책임을 할당하는 데 필요한 메시지를 먼저 식별\n- 메시지를 처리할 객체를 선택\n\n1. 객체가 최소한의 인터페이스를 가질 수 있게 된다\n2. 객체는 충분히 추상적인 인터페이스를 가질 수 있게 된다\n    - 인터페이스는 무엇을 하는지는 표현하지만 어떻게 수행하는지는 노출하면 안된다.\n\n### 행동이 상태를 결정\n\n협력에 필요한 객체의 행동을 결정하고 나서 상태를 결정\n협력 관계 속에서 다른 객체에게 무엇을 제공하고 무엇을 얻어야 할지를 고민하라\n\n## 역할을 통해 유연하고 재사용 가능한 협력을 얻는다\n\n- `역할`\n    - 다른 것으로 교체할 수 있는 책임의 집합\n    - 다양한 종류의 객체를 수용할 수 있는 일종의 슬롯\n    - 구체적인 객체들의 타입을 캡슐화하는 추상화\n    - 역할을 구현하는 방법\n        - 추상 클래스\n        - 인터페이스\n\n- 협력에 적합한 책임을 수행하는 대상이\n    - 한 종류라면 - 객체\n    - 여러 종류의 객체들이 참여할 수 있다면 - 역할\n\n역할 덕분에 설계의 구성 요소를 추상화 할 수 있다\n\n### 느낀점\n\n이번장을 읽으면서, 머리로는 이해한 객체 설계 기법을 어떻게 하면 프로젝트에 적용해 볼 수 있을까 하는 고민을 해보았습니다.\n\n개인적으로 TDD가 모듈간의 의존도를 낮추고 객체지향적으로 프로그램을 설계하는데 도움을 줄 수 있지 않을까 생각해보았습니다.\n\nTDD를 기반으로 한다면 의존관계가 높은 테스트 코드 자체를 만들기가 어렵기 때문에 하나의 큰 기능을 작은 단위의 기능으로 쪼게게 됩니다.\n\n또한 자연스럽게 테스트를 통과하기 위한 메서드를 만든 다음, 메서드를 위한 필드값을 정의하는 순서로 구현이 이루어지기 때문에 행동이 상태를 결정하는 구조로 설계가 이루어 집니다.\n\n이러한 이유에서 TDD는 테스트 기법이 아닌 설계 기법이라 하지 않을까 생각해보게 되었습니다.\n","lang":"ko","allPostsInOtherLang":[]},"__N_SSG":true},"page":"/[lang]/[id]","query":{"lang":"ko","id":"object3"},"buildId":"3EsDHwlg9hdGYAX_g3rvf","assetPrefix":"/log","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
