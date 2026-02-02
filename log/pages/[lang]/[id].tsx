@@ -19,6 +19,7 @@ import { useRouter } from "next/router";
 import "github-markdown-css";
 import Utterances from "../../components/utterances";
 import ScrollSpy from "../../components/scroll-spy";
+import Layout from "../../components/layout/layout";
 import Head from "next/head";
 import { GetStaticProps, GetStaticPaths } from "next";
 
@@ -158,7 +159,7 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
   const tags = postData.tags ? postData.tags.split(", ") : [];
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>{postData.title}</title>
         <meta name="title" content={postData.title} />
@@ -171,17 +172,17 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
         <meta property="og:title" content={postData.title} />
         <meta
           property="og:url"
-          content={`https://headf1rst.github.io/TIL/${lang}/${postData.id}`}
+          content={`https://headf1rst.github.io/log/${lang}/${postData.id}`}
         />
         <meta property="og:type" content="blog" />
         <meta property="og:image" content={postData.thumbnail} />
         <meta property="og:description" content={postData.description} />
 
-        <link rel="alternate" hrefLang="ko" href={`https://headf1rst.github.io/TIL/ko/${postData.id}`} />
+        <link rel="alternate" hrefLang="ko" href={`https://headf1rst.github.io/log/ko/${postData.id}`} />
         {translationPost && (
-          <link rel="alternate" hrefLang="en" href={`https://headf1rst.github.io/TIL/en/${translationPost.id}`} />
+          <link rel="alternate" hrefLang="en" href={`https://headf1rst.github.io/log/en/${translationPost.id}`} />
         )}
-        <link rel="alternate" hrefLang="x-default" href={`https://headf1rst.github.io/TIL/ko/${postData.id}`} />
+        <link rel="alternate" hrefLang="x-default" href={`https://headf1rst.github.io/log/ko/${postData.id}`} />
         
         {generateJsonLd()}
       </Head>
@@ -247,7 +248,7 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
         </div>
         <Utterances />
       </div>
-    </>
+    </Layout>
   );
 }
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { ICategoryInfo, IPostData, IProfile } from "../../../lib/types";
 import SideProfile from "../../../components/side-profile";
+import Layout from "../../../components/layout/layout";
 import { getProfileData } from "../../../lib/blog";
 import {
   getCategoryInfoById,
@@ -70,7 +71,7 @@ function CategoryPosts({ categoryInfo, postDatas, profileData, lang }: IProps) {
   }
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>{`${categoryInfo.name}: ${blogMeta.name}`}</title>
         <meta name="title" content={`${categoryInfo.name}: ${blogMeta.name}`} />
@@ -89,14 +90,14 @@ function CategoryPosts({ categoryInfo, postDatas, profileData, lang }: IProps) {
         />
         <meta
           property="og:url"
-          content={`https://headf1rst.github.io/TIL/${lang}/category/${categoryInfo.id}`}
+          content={`https://headf1rst.github.io/log/${lang}/category/${categoryInfo.id}`}
         />
         <meta property="og:type" content="blog" />
         <meta property="og:image" content="https://i.imgur.com/2nHGFTv.png" />
         <meta property="og:description" content={blogMeta.description} />
         
-        <link rel="alternate" hrefLang="ko" href={`https://headf1rst.github.io/TIL/ko/category/${categoryInfo.id}`} />
-        <link rel="alternate" hrefLang="en" href={`https://headf1rst.github.io/TIL/en/category/${categoryInfo.id}`} />
+        <link rel="alternate" hrefLang="ko" href={`https://headf1rst.github.io/log/ko/category/${categoryInfo.id}`} />
+        <link rel="alternate" hrefLang="en" href={`https://headf1rst.github.io/log/en/category/${categoryInfo.id}`} />
       </Head>
       <div className="m-auto flex flex-col gap-10 w-2/3 pt-10 dark:text-[#c9d1d9] sm:gap-0 sm:flex-col-reverse sm:pt-0 sm:w-full">
         <div className="sm:flex sm:flex-col sm:px-5 sm:gap-5">
@@ -137,7 +138,7 @@ function CategoryPosts({ categoryInfo, postDatas, profileData, lang }: IProps) {
         </div>
         <SideProfile {...profileData} lang={lang} />
       </div>
-    </>
+    </Layout>
   );
 }
 

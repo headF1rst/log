@@ -4,6 +4,7 @@ import { getProfileData } from "../../lib/blog";
 import { getBlogMeta, getNavLabels, getPostLabels, langFlags, SupportedLang } from "../../lib/i18n";
 import Link from "next/link";
 import SideProfile from "../../components/side-profile";
+import Layout from "../../components/layout/layout";
 import { classNames } from "../../util/class-name";
 import markdownToTxt from "markdown-to-txt";
 import { useRouter } from "next/router";
@@ -75,7 +76,7 @@ const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
   };
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>{meta.name}</title>
         <meta name="title" content={meta.name} />
@@ -90,14 +91,14 @@ const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
         <meta name="author" content="Sanha Ko" />
 
         <meta property="og:title" content={meta.name} />
-        <meta property="og:url" content={`https://headf1rst.github.io/TIL/${lang}`} />
+        <meta property="og:url" content={`https://headf1rst.github.io/log/${lang}`} />
         <meta property="og:type" content="blog" />
         <meta property="og:image" content="https://i.imgur.com/JtjOEf3.png" />
         <meta property="og:description" content={meta.description} />
         
-        <link rel="alternate" hrefLang="ko" href="https://headf1rst.github.io/TIL/ko" />
-        <link rel="alternate" hrefLang="en" href="https://headf1rst.github.io/TIL/en" />
-        <link rel="alternate" hrefLang="x-default" href="https://headf1rst.github.io/TIL/ko" />
+        <link rel="alternate" hrefLang="ko" href="https://headf1rst.github.io/log/ko" />
+        <link rel="alternate" hrefLang="en" href="https://headf1rst.github.io/log/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://headf1rst.github.io/log/ko" />
       </Head>
       <div className="flex justify-around gap-5 sm:gap-0 sm:flex-col-reverse dark:bg-[#0d1117] dark:text-[#c9d1d9] lg:h-full">
         <div className="flex flex-col w-2/3 gap-10 px-5 pt-10 sm:w-full">
@@ -149,7 +150,7 @@ const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
 
             <SideProfile {...profileData} lang={lang} />
       </div>
-    </>
+    </Layout>
   );
 };
 

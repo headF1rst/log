@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://headf1rst.github.io/TIL/",
+  siteUrl: "https://headf1rst.github.io/log/",
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [

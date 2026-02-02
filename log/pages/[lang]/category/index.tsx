@@ -5,6 +5,7 @@ import { IProfile } from "../../../lib/types";
 import { useRouter } from "next/router";
 import { getProfileData } from "../../../lib/blog";
 import SideProfile from "../../../components/side-profile";
+import Layout from "../../../components/layout/layout";
 import { getBlogMeta, getCategoryLabels, getPostLabels, SupportedLang } from "../../../lib/i18n";
 import Head from "next/head";
 import { GetStaticProps, GetStaticPaths } from "next";
@@ -58,7 +59,7 @@ function Category({ categoryInfos, profileData, lang }: IProps) {
   };
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>{`${categoryLabels.category}: ${blogMeta.name}`}</title>
         <meta name="title" content={`${categoryLabels.category}: ${blogMeta.name}`} />
@@ -75,14 +76,14 @@ function Category({ categoryInfos, profileData, lang }: IProps) {
         <meta property="og:title" content={`${categoryLabels.category}: ${blogMeta.name}`} />
         <meta
           property="og:url"
-          content={`https://headf1rst.github.io/TIL/${lang}/category`}
+          content={`https://headf1rst.github.io/log/${lang}/category`}
         />
         <meta property="og:type" content="blog" />
         <meta property="og:image" content="https://i.imgur.com/2nHGFTv.png" />
         <meta property="og:description" content={blogMeta.description} />
 
-        <link rel="alternate" hrefLang="ko" href="https://headf1rst.github.io/TIL/ko/category" />
-        <link rel="alternate" hrefLang="en" href="https://headf1rst.github.io/TIL/en/category" />
+        <link rel="alternate" hrefLang="ko" href="https://headf1rst.github.io/log/ko/category" />
+        <link rel="alternate" hrefLang="en" href="https://headf1rst.github.io/log/en/category" />
       </Head>
       <div className="flex justify-around gap-10 dark:text-[#c9d1d9] sm:gap-0 sm:flex-col-reverse">
         <div className="flex flex-col w-1/2 gap-10 pt-10 pb-20 mr-20 sm:w-full sm:px-5">
@@ -111,7 +112,7 @@ function Category({ categoryInfos, profileData, lang }: IProps) {
         </div>
         <SideProfile {...profileData} lang={lang} />
       </div>
-    </>
+    </Layout>
   );
 }
 

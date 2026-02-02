@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { useRouter } from "next/router";
 import Head from "next/head";
 
 const DEFAULT_LANG = "ko";
@@ -20,21 +19,37 @@ function getPreferredLanguage(): string {
 }
 
 export default function Home() {
-  const router = useRouter();
-
   useEffect(() => {
     const lang = getPreferredLanguage();
-    router.replace(`/${lang}`);
+    if (lang !== "ko") {
+      window.location.href = `/${lang}/`;
+    }
   }, []);
 
   return (
     <>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              const lang = localStorage.getItem('preferred-lang') || 
+                (navigator.language?.toLowerCase().startsWith('ko') ? 'ko' : 'en');
+              if (lang !== 'ko') {
+                window.location.replace('/' + lang + '/');
+              }
+            })();
+          `,
+        }}
+      />
+      <meta httpEquiv="refresh" content={`0; url=/ko/`} />
       <Head>
-        <title>Redirecting...</title>
-        <meta name="robots" content="noindex" />
+        <title>산하개발실록</title>
+        <meta name="description" content="기술 블로그" />
       </Head>
       <div className="flex items-center justify-center h-screen dark:bg-[#0d1117] dark:text-[#c9d1d9]">
-        <div className="text-lg">Redirecting...</div>
+        <div className="text-lg">
+          <a href="/ko/">클릭하여 이동하기...</a>
+        </div>
       </div>
     </>
   );

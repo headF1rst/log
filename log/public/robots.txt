@@ -7,7 +7,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://headf1rst.github.io/TIL/
+Host: https://headf1rst.github.io/log/
 
 # Sitemaps
-Sitemap: https://headf1rst.github.io/TIL/sitemap.xml
+Sitemap: https://headf1rst.github.io/log/sitemap.xml
