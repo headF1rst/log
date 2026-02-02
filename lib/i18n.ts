@@ -15,11 +15,11 @@ export const langFlags: Record<SupportedLang, string> = {
 
 export const blogMeta = {
   ko: {
-    name: '산하개발실록',
+    name: 'JustAnotherBlog',
     description: '경험 공유를 통해 함께 성장하는 선순환 가치를 만들고자 블로그를 운영하고 있습니다.',
   },
   en: {
-    name: "Sanha's Dev Log",
+    name: "JustAnotherBlog",
     description: 'Sharing experiences to create a positive cycle of growth together.',
   },
 } as const;

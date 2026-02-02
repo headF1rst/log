@@ -51,7 +51,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
@@ -159,7 +159,7 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
   const tags = postData.tags ? postData.tags.split(", ") : [];
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>{postData.title}</title>
         <meta name="title" content={postData.title} />
@@ -182,8 +182,8 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
         {translationPost && (
           <link rel="alternate" hrefLang="en" href={`https://headf1rst.github.io/log/en/${translationPost.id}`} />
         )}
-        <link rel="alternate" hrefLang="x-default" href={`https://headf1rst.github.io/log/ko/${postData.id}`} />
-        
+        <link rel="alternate" hrefLang="x-default" href={`https://headf1rst.github.io/log/ko/${postData.id}`}/>
+
         {generateJsonLd()}
       </Head>
       <div className="flex flex-col w-3/5 sm:w-5/6 m-auto pt-20 pb-20 gap-10 dark:bg-[#0d1117] dark:text-[#c9d1d9]">
@@ -248,7 +248,7 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
         </div>
         <Utterances />
       </div>
-    </Layout>
+    </>
   );
 }
 

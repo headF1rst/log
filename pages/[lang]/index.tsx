@@ -76,7 +76,7 @@ const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
   };
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>{meta.name}</title>
         <meta name="title" content={meta.name} />
@@ -95,7 +95,7 @@ const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
         <meta property="og:type" content="blog" />
         <meta property="og:image" content="https://i.imgur.com/JtjOEf3.png" />
         <meta property="og:description" content={meta.description} />
-        
+
         <link rel="alternate" hrefLang="ko" href="https://headf1rst.github.io/log/ko" />
         <link rel="alternate" hrefLang="en" href="https://headf1rst.github.io/log/en" />
         <link rel="alternate" hrefLang="x-default" href="https://headf1rst.github.io/log/ko" />
@@ -146,11 +146,11 @@ const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
               </div>
             ))}
           </div>
-        </div>
+          </div>
 
             <SideProfile {...profileData} lang={lang} />
       </div>
-    </Layout>
+    </>
   );
 };
 

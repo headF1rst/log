@@ -23,6 +23,7 @@ const nextConfig = {
     ],
   },
   basePath: isProd ? "/log" : "",
+  assetPrefix: isProd ? "/log" : "",
 };
 
 module.exports = nextConfig;

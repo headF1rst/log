@@ -59,7 +59,7 @@ function Category({ categoryInfos, profileData, lang }: IProps) {
   };
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>{`${categoryLabels.category}: ${blogMeta.name}`}</title>
         <meta name="title" content={`${categoryLabels.category}: ${blogMeta.name}`} />
@@ -112,7 +112,7 @@ function Category({ categoryInfos, profileData, lang }: IProps) {
         </div>
         <SideProfile {...profileData} lang={lang} />
       </div>
-    </Layout>
+    </>
   );
 }
 

@@ -38,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
@@ -71,7 +71,7 @@ function CategoryPosts({ categoryInfo, postDatas, profileData, lang }: IProps) {
   }
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>{`${categoryInfo.name}: ${blogMeta.name}`}</title>
         <meta name="title" content={`${categoryInfo.name}: ${blogMeta.name}`} />
@@ -95,7 +95,7 @@ function CategoryPosts({ categoryInfo, postDatas, profileData, lang }: IProps) {
         <meta property="og:type" content="blog" />
         <meta property="og:image" content="https://i.imgur.com/2nHGFTv.png" />
         <meta property="og:description" content={blogMeta.description} />
-        
+
         <link rel="alternate" hrefLang="ko" href={`https://headf1rst.github.io/log/ko/category/${categoryInfo.id}`} />
         <link rel="alternate" hrefLang="en" href={`https://headf1rst.github.io/log/en/category/${categoryInfo.id}`} />
       </Head>
@@ -135,10 +135,10 @@ function CategoryPosts({ categoryInfo, postDatas, profileData, lang }: IProps) {
               </div>
             ))}
           </div>
-        </div>
+          </div>
         <SideProfile {...profileData} lang={lang} />
       </div>
-    </Layout>
+    </>
   );
 }
 

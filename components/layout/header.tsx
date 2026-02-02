@@ -7,9 +7,7 @@ import { MdClose } from "react-icons/md";
 import { BiLinkExternal } from "react-icons/bi";
 import { getBlogMeta, getNavLabels, langFlags, langNames, SupportedLang } from "../../lib/i18n";
 
-const headerData = {
-  icon: "https://i.imgur.com/2nHGFTv.png",
-};
+
 
 function Header() {
   const router = useRouter();
@@ -50,12 +48,6 @@ function Header() {
       <div className="flex justify-start">
         <Link href={`/${lang}`}>
           <div className="flex items-center gap-2 cursor-pointer">
-            <img
-              src={headerData.icon}
-              width={40}
-              height={40}
-              alt="블로그 아이콘"
-            />
             <h1 className="text-lg ">{blogMeta.name}</h1>
           </div>
         </Link>
