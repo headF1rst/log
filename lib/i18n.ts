@@ -27,13 +27,15 @@ export const blogMeta = {
 export const navLabels = {
   ko: {
     home: 'Home',
-    category: 'Category',
+    tech: 'Tech',
+    domain: 'Domain',
     about: 'About',
     allTags: '전체',
   },
   en: {
     home: 'Home',
-    category: 'Category',
+    tech: 'Tech',
+    domain: 'Domain',
     about: 'About',
     allTags: 'All',
   },
@@ -66,19 +68,9 @@ export const postLabels = {
   },
 } as const;
 
-export const categoryLabels = {
-  ko: {
-    category: '카테고리',
-  },
-  en: {
-    category: 'Category',
-  },
-} as const;
-
 export type BlogMeta = typeof blogMeta[SupportedLang];
 export type NavLabels = typeof navLabels[SupportedLang];
 export type PostLabels = typeof postLabels[SupportedLang];
-export type CategoryLabels = typeof categoryLabels[SupportedLang];
 
 export function getBlogMeta(lang: SupportedLang): BlogMeta {
   return blogMeta[lang];
@@ -90,8 +82,4 @@ export function getNavLabels(lang: SupportedLang): NavLabels {
 
 export function getPostLabels(lang: SupportedLang): PostLabels {
   return postLabels[lang];
-}
-
-export function getCategoryLabels(lang: SupportedLang): CategoryLabels {
-  return categoryLabels[lang];
 }

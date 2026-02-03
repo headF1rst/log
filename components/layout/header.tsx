@@ -13,12 +13,16 @@ function Header() {
   const router = useRouter();
   const [showMenu, setShowMenu] = useState(false);
   const [showLangMenu, setShowLangMenu] = useState(false);
-  
+
   const pathLang = router.asPath.split('/')[1];
   const lang = (pathLang && ['ko', 'en'].includes(pathLang) ? pathLang : 'ko') as SupportedLang;
   const blogMeta = getBlogMeta(lang);
   const navLabels = getNavLabels(lang);
   const availableLangs: readonly SupportedLang[] = ['ko', 'en'];
+
+  const isHomeActive = (router.pathname === "/[lang]" || router.pathname === "/") && !router.asPath.includes('section=');
+  const isTechActive = router.asPath.includes('section=tech');
+  const isDomainActive = router.asPath.includes('section=domain');
 
   const onMenuClick = (menu: string) => {
     setShowMenu(false);
@@ -56,26 +60,31 @@ function Header() {
         <Link href={`/${lang}`}>
           <button
             className={classNames(
-              router.pathname === "/[lang]" || router.pathname === "/" 
-                ? "font-bold " 
-                : "font-light",
+              isHomeActive ? "font-bold " : "font-light",
               "hover:text-indigo-300 text-base"
             )}
           >
             {navLabels.home}
           </button>
         </Link>
-        <Link href={`/${lang}/category`}>
+        <Link href={`/${lang}?section=tech`}>
           <button
             className={classNames(
-              router.pathname === "/[lang]/category" ||
-                router.pathname === "/[lang]/category/[cid]"
-                ? "font-bold "
-                : "font-light",
+              isTechActive ? "font-bold " : "font-light",
               "hover:text-indigo-300 text-base"
             )}
           >
-            {navLabels.category}
+            {navLabels.tech}
+          </button>
+        </Link>
+        <Link href={`/${lang}?section=domain`}>
+          <button
+            className={classNames(
+              isDomainActive ? "font-bold " : "font-light",
+              "hover:text-indigo-300 text-base"
+            )}
+          >
+            {navLabels.domain}
           </button>
         </Link>
         <a
@@ -128,25 +137,29 @@ function Header() {
           <button
             onClick={() => onMenuClick(`/${lang}`)}
             className={classNames(
-              router.pathname === "/[lang]" || router.pathname === "/" 
-                ? "font-bold " 
-                : "font-light",
+              isHomeActive ? "font-bold " : "font-light",
               "hover:text-indigo-300 text-base"
             )}
           >
             {navLabels.home}
           </button>
           <button
-            onClick={() => onMenuClick(`/${lang}/category`)}
+            onClick={() => onMenuClick(`/${lang}?section=tech`)}
             className={classNames(
-              router.pathname === "/[lang]/category" ||
-                router.pathname === "/[lang]/category/[cid]"
-                ? "font-bold "
-                : "font-light",
+              isTechActive ? "font-bold " : "font-light",
               "hover:text-indigo-300 text-base"
             )}
           >
-            {navLabels.category}
+            {navLabels.tech}
+          </button>
+          <button
+            onClick={() => onMenuClick(`/${lang}?section=domain`)}
+            className={classNames(
+              isDomainActive ? "font-bold " : "font-light",
+              "hover:text-indigo-300 text-base"
+            )}
+          >
+            {navLabels.domain}
           </button>
           <a
             href={

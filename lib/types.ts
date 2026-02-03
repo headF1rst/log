@@ -11,6 +11,7 @@ export interface IPostData {
   id: string;
   title: string;
   category: string;
+  section?: string;
   thumbnail: string;
   tags: string;
   date: string;
@@ -19,15 +20,6 @@ export interface IPostData {
   searchKeywords: string;
   lang?: string;
   translationSlug?: string;
-}
-
-export interface ICategoryInfo {
-  id: string;
-  name: string;
-  thumbnail: string;
-  numberOfPosts: number;
-  description: string;
-  lang: string;
 }
 
 export interface ITag {

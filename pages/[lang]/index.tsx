@@ -1,4 +1,4 @@
-import { getAllTags, getSortedPostsData, SUPPORTED_LANGS, DEFAULT_LANG } from "../../lib/posts";
+import { getAllTags, getSortedPostsData, SUPPORTED_LANGS, DEFAULT_LANG, getPostsBySection, getTagsByPosts } from "../../lib/posts";
 import { IPostData, IProfile, ITag } from "../../lib/types";
 import { getProfileData } from "../../lib/blog";
 import { getBlogMeta, getNavLabels, getPostLabels, langFlags, SupportedLang } from "../../lib/i18n";
@@ -52,17 +52,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
   const router = useRouter();
   const {
-    query: { tag },
+    query: { tag, section },
   } = router;
-  
+
   const meta = getBlogMeta(lang as SupportedLang);
   const navLabels = getNavLabels(lang as SupportedLang);
   const postLabels = getPostLabels(lang as SupportedLang);
   const tagName = !tag ? navLabels.allTags : tag;
 
   const getFilteredPosts = (allPostsData: IPostData[]) => {
-    const tagSelect = tag && typeof tag === "string" ? tag : navLabels.allTags;
-    if (tagSelect === navLabels.allTags) {
+    const tagSelect = tag && typeof tag === "string" ? tag : "All";
+    if (tagSelect === "All") {
       return allPostsData;
     } else {
       return allPostsData.filter(
@@ -71,8 +71,23 @@ const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
     }
   };
 
+  const getPostsBySectionFilter = () => {
+    if (!section || typeof section !== "string") {
+      return allPostsData;
+    }
+    return allPostsData.filter((postData) => postData.section === section);
+  };
+
+  const displayPosts = getFilteredPosts(getPostsBySectionFilter());
+  const displayFilteredPosts = getPostsBySectionFilter();
+  const displayTags = getTagsByPosts(displayFilteredPosts);
+
   const onTagClick = (tagName: string) => {
-    router.push(`/${lang}?tag=${tagName}`);
+    if (tagName === "All") {
+      router.push(`/${lang}${section ? `?section=${section}` : ""}`);
+    } else {
+      router.push(`/${lang}?tag=${tagName}${section ? `&section=${section}` : ""}`);
+    }
   };
 
   return (
@@ -103,7 +118,7 @@ const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
       <div className="flex justify-around gap-5 sm:gap-0 sm:flex-col-reverse dark:bg-[#0d1117] dark:text-[#c9d1d9] lg:h-full">
         <div className="flex flex-col w-2/3 gap-10 px-5 pt-10 sm:w-full">
           <div className="flex flex-wrap gap-2 mr-20 sm:m-0">
-            {allTags.map((tagItem: ITag) => (
+            {displayTags.map((tagItem: ITag) => (
               <span
                 className={classNames(
                   tagName === tagItem.name
@@ -119,7 +134,7 @@ const Home = ({ allPostsData, allTags, profileData, lang }: IProps) => {
             ))}
           </div>
           <div className="flex flex-col gap-10 pb-20">
-            {getFilteredPosts(allPostsData).map((postData: IPostData) => (
+            {displayPosts.map((postData: IPostData) => (
               <div key={postData.id}>
                 <div className="flex gap-5 sm:flex-col-reverse">
                   <div className="flex flex-col justify-between w-3/5 sm:w-full">
