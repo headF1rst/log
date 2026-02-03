@@ -1,0 +1,344 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width"/><link rel="apple-touch-icon" sizes="180x180" href="https://i.imgur.com/2nHGFTv.png"/><link rel="icon" type="image/png" sizes="32x32" href="https://i.imgur.com/2nHGFTv.png"/><link rel="icon" type="image/png" sizes="16x16" href="https://i.imgur.com/2nHGFTv.png"/><link rel="manifest" href="/site.webmanifest"/><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"/><meta name="msapplication-TileColor" content="#da532c"/><meta name="theme-color" content="#ffffff"/><title>MVC 프레임워크 만들기 - MVC 1편</title><meta name="title" content="MVC 프레임워크 만들기 - MVC 1편"/><meta name="description" content=""/><meta name="keywords" content=""/><meta name="robots" content="index, follow"/><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="language" content="Korean"/><meta name="author" content="Sanha Ko"/><meta property="og:title" content="MVC 프레임워크 만들기 - MVC 1편"/><meta property="og:url" content="https://headf1rst.github.io/log/ko/post12"/><meta property="og:type" content="blog"/><meta property="og:image" content="https://i.imgur.com/b9vvtK7.png"/><meta property="og:description"/><link rel="alternate" hrefLang="ko" href="https://headf1rst.github.io/log/ko/post12"/><link rel="alternate" hrefLang="x-default" href="https://headf1rst.github.io/log/ko/post12"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"MVC 프레임워크 만들기 - MVC 1편","datePublished":"2022-10-08 10:00","dateModified":"2022-10-08 10:00","author":{"@type":"Person","name":"Sanha Ko"},"description":"","image":"https://i.imgur.com/b9vvtK7.png","url":"https://headf1rst.github.io/TIL/ko/post12","keywords":"Spring,MVC","inLanguage":"ko-KR","publisher":{"@type":"Organization","name":"headF1rst","logo":{"@type":"ImageObject","url":"https://headf1rst.github.io/TIL/favicon.ico"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://headf1rst.github.io/TIL/ko/post12"}}</script><meta name="next-head-count" content="25"/><link rel="preload" href="/log/_next/static/css/de99c5ef2826bc4f.css" as="style"/><link rel="stylesheet" href="/log/_next/static/css/de99c5ef2826bc4f.css" data-n-g=""/><link rel="preload" href="/log/_next/static/css/38994dd0aed51f22.css" as="style"/><link rel="stylesheet" href="/log/_next/static/css/38994dd0aed51f22.css" data-n-p=""/><noscript data-n-css=""></noscript><script defer="" nomodule="" src="/log/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"></script><script src="/log/_next/static/chunks/webpack-1b0decc0375da57b.js" defer=""></script><script src="/log/_next/static/chunks/framework-2c79e2a64abdb08b.js" defer=""></script><script src="/log/_next/static/chunks/main-6e6d6dc6617c8481.js" defer=""></script><script src="/log/_next/static/chunks/pages/_app-e1ab911108ce8227.js" defer=""></script><script src="/log/_next/static/chunks/pages/%5Blang%5D/%5Bid%5D-0687c01bb97784d8.js" defer=""></script><script src="/log/_next/static/yGW32L9T_cXTLRlN1Fygt/_buildManifest.js" defer=""></script><script src="/log/_next/static/yGW32L9T_cXTLRlN1Fygt/_ssgManifest.js" defer=""></script></head><body><div id="__next"><nav class="flex bg-white sticky top-0 left-0 z-50 justify-between items-center border-b-2 border-gray-100 py-3 md:justify-start md:space-x-10 px-10 sm:px-5 dark:bg-[#0d1117] dark:text-[#c9d1d9] dark:border-gray-600"><div class="flex justify-start"><a href="/log/ko/"><div class="flex items-center gap-2 cursor-pointer"><h1 class="text-lg ">JustAnotherBlog</h1></div></a></div><div class="flex justify-between gap-10 sm:hidden items-center"><a href="/log/ko/"><button class="font-light hover:text-indigo-300 text-base">Home</button></a><a href="/log/ko/?section=tech"><button class="font-light hover:text-indigo-300 text-base">Tech</button></a><a href="/log/ko/?section=domain"><button class="font-light hover:text-indigo-300 text-base">Domain</button></a><a href="https://plain-composer-c65.notion.site/29c7640fdf054059b6ea28ed61189bfb" target="_blank" rel="noreferrer" class="hover:text-indigo-300 text-base font-light flex gap-1">About<span class="flex justify-center" style="align-items:center"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path><path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path></svg></span></a><div class="relative"><button class="flex items-center gap-1 hover:text-indigo-300 text-base font-light">🇰🇷<!-- --> <!-- -->한국어</button></div></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="lg:hidden" height="25" width="25" xmlns="http://www.w3.org/2000/svg"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path></svg></nav><main class="dark:bg-[#0d1117] h-screen pb-10"><div class="flex flex-col w-3/5 sm:w-5/6 m-auto pt-20 pb-20 gap-10 dark:bg-[#0d1117] dark:text-[#c9d1d9]"><ul id="scroll-spy" class="sm:hidden p-10 fixed top-50 right-0 h-full w-1/5 text-gray-500 dark:text-[#c9d1d9]"></ul><div class="text-5xl font-bold">MVC 프레임워크 만들기 - MVC 1편</div><div class="flex flex-col gap-2"><div class="text-base text-gray-600 dark:text-gray-300">2022-10-08 10:00</div><div class="flex flex-wrap gap-2 dark:text-black sm:m-0"><span class="p-1 pl-3 pr-3 rounded-md bg-indigo-100 hover:bg-indigo-200 cursor-pointer transition ease-in-out duration-200 text-sm">Spring</span><span class="p-1 pl-3 pr-3 rounded-md bg-indigo-100 hover:bg-indigo-200 cursor-pointer transition ease-in-out duration-200 text-sm">MVC</span></div></div><div class="flex items-center gap-2"><span class="text-sm text-gray-400">🇺🇸 영어로 읽기</span></div><div class="markdown-body" style="font-size:17px"><p>7월에 <a href="https://edu.nextstep.camp/">넥스트 스텝</a>에서 진행하는 <a href="https://edu.nextstep.camp/s/I7LCaCf3">만들면서 배우는 스프링 3기</a>에 참여하였습니다.</p>
+<p>이 포스트는 해당 과정에서 스스로 고민하며 MVC 프레임워크를 차근 차근 구현해보았던 과정입니다.</p>
+<h2>1. MVC 패턴의 탄생</h2>
+<h3>1.1 Servlet, JSP, Model</h3>
+<p>MVC 구현 과정을 살펴보기 이전에 MVC 패턴이 무엇이고 어떤 과정을 통해서 발전하였는지 개념을 짚고 넘어가도록 하자.</p>
+<p>초기 자바 진영에서는 동적인 웹 페이지를 구현하기 위한 표준으로 <a href="https://mangkyu.tistory.com/m/14">서블릿</a>이 등장하였다. 서블릿은 WAS의 tcp/ip 연결, 멀티 쓰레드 관리등을 담당하였으며 사용자 요청에 대한 처리와 처리 결과에 따른 응답을 생성해서 HTML 파일을 클라이언트에게 반환하는 역할을 하였다.</p>
+<p>하지만 서블릿은 자바 코드로 작성되기 때문에 HTML 파일을 생성하기 어렵다는 단점이 존재했고, 화면 출력 로직을 담당하는 <code node="[object Object]">템플릿 엔진</code> (JSP, Thymeleaf …)이 등장했다.</p>
+<p>JSP의 등장으로 HTML 파일 생성은 쉬워졌지만 JSP가 비즈니스 로직까지 너무 많은 역할을 담당한다는 단점이 여전히 존재했다. (하나의 JSP파일에 코드가 수천줄이 넘어가고 유지보수가 어려웠다.)
+UI와 로직의 역할 분리가 제대로 이뤄지지 않았기 때문에 간단한 UI를 변경하더라도 로직까지 함께 수정해야 하는 등 변경 라이프 사이클이 맞지 않았기 때문에 유지보수에 좋은 구조라고 볼 수도 없었다.</p>
+<p>유지보수에 유연한 구조를 생성하고자 어플리케이션 구성 요소의 관심사를 분리한 MVC 패턴을 도입하였으며 서블릿, JSP 조합 MVC 패턴을 통해서 로직과 뷰 부분을 나누어서 개발하기 시작했다. 이후 MVC 패턴을 기반으로한 여러 MVC 프레임워크가 등장하기 시작했다 (스트럿츠, 스프링 MVC 등)</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/ModelViewControllerDiagram2.svg/1200px-ModelViewControllerDiagram2.svg.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/>
+출처 - 위키피디아</p>
+<ul>
+<li><strong>MVC 패턴의 구성 요소</strong>
+<ul>
+<li><code node="[object Object]">Controller</code>
+<ul>
+<li>HTTP 요청을 받아서 파라미터를 검증하고 비즈니스 로직을 실행하는 역할.</li>
+<li>View에 전달할 결과 데이터를 조회해서 Model에 담는 책임을 수행한다.</li>
+</ul>
+</li>
+<li><code node="[object Object]">Model</code>
+<ul>
+<li>View에 출력할 데이터를 저장한다.</li>
+<li>(View는 로직이 처리된 결과 데이터가 Model에 담겨서 전달되기 때문에 비즈니스 로직이나 데이터 접근을 몰라도된다. 오직 화면 렌더링 역할에만 최적화 될 수 있다.)</li>
+</ul>
+</li>
+<li><code node="[object Object]">View</code>
+<ul>
+<li><code node="[object Object]">Model</code> 에 담긴 데이터를 사용하여 화면을 렌더링하는 책임을 수행한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>1.2 Front Controller 패턴</h3>
+<p>초기 MVC 패턴에서 클라이언트들은  서로 다른 Controller를 호출하였으며 공통 코드들이 각 Controller에 포함되어있었다.</p>
+<p>코드의 중복을 없에기 위해서 모든 Controller로 가기 위한 입구 역할을 하는 Front Controller 패턴을 MVC 프레임워크에 도입하였다.</p>
+<p><img src="https://i.imgur.com/e0ZXbT7.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p>바로 이 Front Controller가 Spring MVC 프레임워크의 <code node="[object Object]">DispatcherServlet</code> 이며 다음과 같은 역할을 수행한다.</p>
+<ul>
+<li>클라이언트의 요청을 받아서 요청 (uri)에 맞는 컨트롤러를 찾아 호출.</li>
+<li>공통 기능을 처리.<!-- -->
+<ul>
+<li>덕분에 Front Controller를 제외한 나머지 Controller는 Servlet을 사용하지 않아도 된다.</li>
+</ul>
+</li>
+</ul>
+<p>더 자세한 내용은 해당 <a href="https://www.baeldung.com/java-front-controller-pattern">링크</a>를 통해서 알아보기로 하고 이제부터는 코드를 살펴보도록 하자.</p>
+<h2>2. DispatcherServlet</h2>
+<p>Front Controller의 역할을 하는 DispatcherServlet 클래스 코드를 만들어보자.</p>
+<h3>2.1 기능 구현</h3>
+<p>가장 먼저 <a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html">HttpServlet</a> 인터페이스를 상속받아서 <a href="https://docs.oracle.com/javaee/6/api/javax/servlet/Servlet.html#:~:text=init,-void%20init(ServletConfig&amp;text=config)%20throws%20ServletException-,Called%20by%20the%20servlet%20container%20to%20indicate%20to%20a%20servlet,servlet%20can%20receive%20any%20requests.">init() 과 service()</a> 메서드를 다음과 같이 구현하였다.</p>
+<p><img src="https://i.imgur.com/ptoieWN.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p><code node="[object Object]">init()</code> 메서드는 서블릿 컨테이너에 의해 한번 호출되면서 필드값에 값을 주입하게 된다.</p>
+<p>필드값은 <code node="[object Object]">RequestMapping</code> 과 <code node="[object Object]">HandlerAdapterStorage</code> 객체를 선언하였는데, 각각 initMapping(), init() 메서드가 호출된다.</p>
+<ul>
+<li><code node="[object Object]">HandlerAdapterStorage</code> - init()<!-- -->
+<ul>
+<li>어댑터를 등록한다.</li>
+<li>HandlerExecution 객체와 SimpleControllerHandlerAdapter 객체의 인스턴스를 생성하여 handlerAdapters 리스트에 <strong>순서 대로</strong> 추가한다.</li>
+</ul>
+</li>
+</ul>
+<p>여기서 순서대로 어댑터들이 저장된것을 주의해야 하는데, 동일한 URI를 처리하는 어댑터가 여러개 존재하더라도 우선순위를 부여하기 위함이다. 이후에 <code node="[object Object]">getHandlerAdapter()</code> 메서드가 호출되면 <code node="[object Object]">HandlerExecution</code> → <code node="[object Object]">SimpleControllerHandlerAdapter</code> 순으로 리스트에서 객체를 가져와서 인자로 주어진 handler를 지원하는지 여부를 검사한다.</p>
+<blockquote>
+<p><strong>Handler</strong> 라는 용어가 어색할 수 있는데, Handler는 더 넓은 의미에서의 Controller를 뜻하며 현재 포스트에서는 Handler와 Controller를 같은 의미로 받아들여도 좋다.</p>
+</blockquote>
+<p><img src="https://i.imgur.com/CtG6FlS.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<ul>
+<li>
+<p><code node="[object Object]">ReqeustMapping</code> - initMapping()</p>
+<ul>
+<li>특정 requestURI를 처리할 수 있는 컨트롤러 객체를 생성한 다음 URI와 매핑하여 HashMap에 저장한다.</li>
+</ul>
+<p><img src="https://i.imgur.com/oNV68VT.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+</li>
+</ul>
+<h2>2.1.1 service 메서드</h2>
+<p><code node="[object Object]">service(request, response)</code> 메서드는 DispatcherServlet의 init() 메서드가 성공적으로 수행되었을때 서블릿 컨테이너에 의해서 호출된다.</p>
+<p><img src="https://i.imgur.com/KKZ6gds.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p>service 메서드의 핵심 로직을 살펴보도록 하자.</p>
+<ul>
+<li>
+<p><code node="[object Object]">getHandler(request)</code> - requestURI와 매핑되는 Controller를 찾아온다.</p>
+</li>
+<li>
+<p><code node="[object Object]">requestMapping.findController(requestURI)</code> 메서드는 RequestMapping 객체내 URI를 키값으로 하는 값(Controller)을 반환한다.
+<img src="https://i.imgur.com/pF0xb8p.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+</li>
+<li>
+<p>찾은 Controller를 지원하는 HandlerAdapter를 찾는다.</p>
+</li>
+<li>
+<p>HandlerAdapter는 지원하는 Controller에 구현된 handle 메서드를 수행하고 ModelAndView 객체를 반환한다.</p>
+<p><img src="https://i.imgur.com/6r7svKL.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+</li>
+</ul>
+<h3>2.2 DispatcherServlet 전체 코드</h3>
+<pre><div node="[object Object]" style="display:block;overflow-x:auto;padding:0.5em;color:#383a42;background:#fafafa"><code class="language-java" style="white-space:pre"><span style="color:#a626a4">package</span><span> core.mvc.asis;
+</span>
+<span></span><span style="color:#a626a4">import</span><span> core.mvc.ModelAndView;
+</span><span></span><span style="color:#a626a4">import</span><span> core.mvc.tobe.*;
+</span><span></span><span style="color:#a626a4">import</span><span> core.mvc.view.View;
+</span><span></span><span style="color:#a626a4">import</span><span> exception.NotFoundException;
+</span><span></span><span style="color:#a626a4">import</span><span> org.slf4j.Logger;
+</span><span></span><span style="color:#a626a4">import</span><span> org.slf4j.LoggerFactory;
+</span><span></span><span style="color:#a626a4">import</span><span> org.springframework.http.HttpStatus;
+</span>
+<span></span><span style="color:#a626a4">import</span><span> javax.servlet.ServletException;
+</span><span></span><span style="color:#a626a4">import</span><span> javax.servlet.annotation.WebServlet;
+</span><span></span><span style="color:#a626a4">import</span><span> javax.servlet.http.HttpServlet;
+</span><span></span><span style="color:#a626a4">import</span><span> javax.servlet.http.HttpServletRequest;
+</span><span></span><span style="color:#a626a4">import</span><span> javax.servlet.http.HttpServletResponse;
+</span>
+<span></span><span style="color:#4078f2">@WebServlet(name = &quot;dispatcher&quot;, urlPatterns = &quot;/&quot;, loadOnStartup = 1)</span><span>
+</span><span></span><span style="color:#a626a4">public</span><span> </span><span class="hljs-class" style="color:#a626a4">class</span><span class="hljs-class"> </span><span class="hljs-class" style="color:#4078f2">DispatcherServlet</span><span class="hljs-class"> </span><span class="hljs-class" style="color:#a626a4">extends</span><span class="hljs-class"> </span><span class="hljs-class" style="color:#4078f2">HttpServlet</span><span class="hljs-class"> </span><span>{
+</span><span>    </span><span style="color:#a626a4">private</span><span> </span><span style="color:#a626a4">static</span><span> </span><span style="color:#a626a4">final</span><span> </span><span style="color:#a626a4">long</span><span> serialVersionUID = </span><span style="color:#986801">1L</span><span>;
+</span><span>    </span><span style="color:#a626a4">private</span><span> </span><span style="color:#a626a4">static</span><span> </span><span style="color:#a626a4">final</span><span> Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
+</span>
+<span>    </span><span style="color:#a626a4">private</span><span> HandlerAdapterStorage handlerAdapterStorage;
+</span><span>    </span><span style="color:#a626a4">private</span><span> RequestMapping requestMapping;
+</span>
+<span>    </span><span style="color:#4078f2">@Override</span><span>
+</span><span>    </span><span class="hljs-function" style="color:#a626a4">public</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">void</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#4078f2">init</span><span class="hljs-function hljs-params">()</span><span class="hljs-function"> </span><span>{
+</span><span>        handlerAdapterStorage = </span><span style="color:#a626a4">new</span><span> HandlerAdapterStorage();
+</span>        handlerAdapterStorage.init();
+<!-- -->
+<span>        requestMapping = </span><span style="color:#a626a4">new</span><span> RequestMapping();
+</span>        requestMapping.initMapping();
+<!-- -->    }
+<!-- -->
+<span>    </span><span style="color:#4078f2">@Override</span><span>
+</span><span>    </span><span class="hljs-function" style="color:#a626a4">protected</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">void</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#4078f2">service</span><span class="hljs-function hljs-params">(HttpServletRequest request, HttpServletResponse response)</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">throws</span><span class="hljs-function"> ServletException </span><span>{
+</span>        Object handler = getHandler(request);
+<span>        </span><span style="color:#a626a4">if</span><span> (handler == </span><span style="color:#a626a4">null</span><span>) {
+</span><span>            </span><span style="color:#a626a4">throw</span><span> </span><span style="color:#a626a4">new</span><span> NotFoundException(HttpStatus.NOT_FOUND);
+</span>        }
+<!-- -->        HandlerAdapter adapter = handlerAdapterStorage.getHandlerAdapter(handler);
+<!-- -->        handleAdapter(request, response, handler, adapter);
+<!-- -->    }
+<!-- -->
+<span>    </span><span class="hljs-function" style="color:#a626a4">private</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">void</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#4078f2">handleAdapter</span><span class="hljs-function hljs-params">(HttpServletRequest request, HttpServletResponse response,
+</span><span class="hljs-function hljs-params">                               Object handler, HandlerAdapter adapter)</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">throws</span><span class="hljs-function"> ServletException </span><span>{
+</span><span>        </span><span style="color:#a626a4">try</span><span> {
+</span>            handle(request, response, handler, adapter);
+<span>        } </span><span style="color:#a626a4">catch</span><span> (Exception e) {
+</span><span>            logger.error(</span><span style="color:#50a14f">&quot;Exception: {}&quot;</span><span>, e.getMessage());
+</span><span>            </span><span style="color:#a626a4">throw</span><span> </span><span style="color:#a626a4">new</span><span> ServletException(e.getMessage());
+</span>        }
+<!-- -->    }
+<!-- -->
+<span>    </span><span class="hljs-function" style="color:#a626a4">private</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">void</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#4078f2">handle</span><span class="hljs-function hljs-params">(HttpServletRequest request, HttpServletResponse response,
+</span><span class="hljs-function hljs-params">                        Object handler, HandlerAdapter adapter)</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">throws</span><span class="hljs-function"> Exception </span><span>{
+</span>        ModelAndView modelAndView = adapter.handle(request, response, handler);
+<!-- -->        View view = modelAndView.getView();
+<!-- -->        view.render(modelAndView.getModel(), request, response);
+<!-- -->    }
+<!-- -->
+<span>    </span><span class="hljs-function" style="color:#a626a4">private</span><span class="hljs-function"> Object </span><span class="hljs-function" style="color:#4078f2">getHandler</span><span class="hljs-function hljs-params">(HttpServletRequest request)</span><span class="hljs-function"> </span><span>{
+</span>        String requestURI = request.getRequestURI();
+<span>        logger.debug(</span><span style="color:#50a14f">&quot;Method: {}, RequestURI: {}&quot;</span><span>, request.getMethod(), requestURI);
+</span><span>        </span><span style="color:#a626a4">return</span><span> requestMapping.findController(requestURI);
+</span>    }
+<!-- -->}</code></div></pre>
+<h2>3. HandlerAdapter</h2>
+<ul>
+<li>HandlerAdapter란?<!-- -->
+<ul>
+<li><code node="[object Object]">HandlerAdapter</code>
+<ul>
+<li>DispatcherServlet과 Controller 사이에 HandlerAdpater를 위치시켜서 DispatcherServlet이 다양한 형태의 Handler(Controller)를 호출할 수 있게 한다.</li>
+</ul>
+</li>
+<li><code node="[object Object]">어뎁터 패턴</code>
+<ul>
+<li>기존 코드를 클라이언트가 사용하는 인터페이스의 구현체로 바꿔주는 패턴</li>
+<li>어뎁터 패턴을 사용하여 DispatcherServlet이 다양한 반환 타입의 컨트롤러를 처리할 수 있게 한다.</li>
+<li>장점<!-- -->
+<ul>
+<li>기존 코드를 변경하지 않고 원하는 인터페이스 구현체를 만들어 재사용 가능</li>
+<li>기존 코드가 하던 일과 특정 인터페이스 구현체로 변환하는 작업을 각기 다른 클래스로 분리하여 관리가 가능</li>
+</ul>
+</li>
+<li>단점<!-- -->
+<ul>
+<li>복잡도 증가. 때에 따라서 기존 코드가 해당 인터페이스를 구현하도록 수정하는 것이 좋은 선택이 될 수 있다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>다양한 어댑터를 유연하게 사용하기 위한 <code node="[object Object]">HandlerAdapter</code> 인터페이스를 선언해 주었다.</p>
+<p><img src="https://i.imgur.com/CF6LYyF.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<ul>
+<li><code node="[object Object]">boolean supports(Object handler)</code>
+<ul>
+<li>어댑터가 핸들러(컨트롤러)를 처리할 수 있는지 여부를 판단한다.</li>
+</ul>
+</li>
+<li><code node="[object Object]">ModelAndView handle(HttpServletRequest, HttpServletResponse, Object)</code>
+<ul>
+<li>어댑터가 실제 컨트롤러를 호출하고 결과로 ModelAndView를 반환 한다.</li>
+<li>컨트롤러가 ModelAndView를 반환하지 못하면 어댑터가 ModelAndView를 생성해서 반환 한다.</li>
+</ul>
+</li>
+</ul>
+<h3>3.1 SimpleControllerHandlerAdapter</h3>
+<p>HandlerAdapter 인터페이스의 구현체인 <code node="[object Object]">SimpleControllerHandlerAdapter</code> 객체를 살펴보면 <code node="[object Object]">support()</code> 의 인자로 주어진 handler가 Controller 인터페이스를 구현한 객체일 경우 true를, 그렇지 않을 경우 false를 반환한다.</p>
+<p><img src="https://i.imgur.com/9UjRZsq.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p><code node="[object Object]">handle()</code> 메서드는 아래와 같이 DispatcherServlet의 <code node="[object Object]">handlerAdater()</code> → <code node="[object Object]">handle()</code> → <code node="[object Object]">adapter.handle()</code> 메서드에 의해서 호출된다.</p>
+<p><img src="https://i.imgur.com/BA0tMbg.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p>만약 요청 uri를 처리할 수 있는 Controller를 알고있는 어댑터가 <code node="[object Object]">SimpleControllerHandlerAdapter</code>일 경우, SimpleControllerHandlerAdapter의 handle 메서드가 호출된다.
+handle() 메서드의 인자로 받아온 handler 객체를 Controller로 다운캐스팅 한 다음 <code node="[object Object]">execute()</code> 메서드를 호출하여 Controller가 로직을 수행하도록 요청하게 된다.</p>
+<h2>4. Controller</h2>
+<p>Controller 인터페이스를 다음과 같이 정의하였고 그 구현체로 다양한 URI를 처리할 수 있는 각각의 Controller 구현체를 구현해 주었다. (HomeController, ForwardController, ListUserController …)</p>
+<p><img src="https://i.imgur.com/NwEgKVD.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p><code node="[object Object]">exeute()</code> 메서드가 호출되었을때 어떤 로직이 수행되는지 Controller 인터페이스의 구현체인 <code node="[object Object]">ListUserController</code> 를 예로 알아보도록 하자 .</p>
+<h3>4.1 execute 메서드</h3>
+<p><img src="https://i.imgur.com/L8po0KF.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p>ListUserController는 로그인되어있는 상태라면 모든 회원정보를 출력하는 <code node="[object Object]">list.jsp</code> 파일을 렌더링하고, 그렇지 않은 상태라면 사용자가 로그인을 먼저 하고 다시 요청할 수 있게끔 로그인 폼으로 리다이렉트하는 로직을 수행한다.</p>
+<p>이때 사용자의 로그인 상태 여부를 확인하기 위해서 <code node="[object Object]">HttpServletRequest</code> 의 <code node="[object Object]">getSession()</code> 메서드를 통해 HttpSession 정보를 isLogined 메서드의 인자로 넘겨주게 되는데 HttpServeltRequest가 Controller에게 데이터를 전달하는 MVC 패턴의 <strong>Model</strong> 역할을 하게 되는 것이다.</p>
+<p>좀 더 로직을 자세히 알아보기 위해서 UserSessionUtils 객체를 어떻게 구현하였는지 알아보도록 하자.</p>
+<h3>4.1.1 UserSessionUtils</h3>
+<p>static 멤버만을 저장하는 유틸성 클래스이기 때문에 객체 생성을 막고자 추상 클래스로 선언해 주었다.</p>
+<p><img src="https://i.imgur.com/cymChPc.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p>앞서 <code node="[object Object]">ListUserController</code> 의 <code node="[object Object]">execute()</code> 메서드에서 호출된 <code node="[object Object]">UserSessionUtils.isLogined()</code> 메서드를 살펴보도록 하겠다.</p>
+<p>조건문에서 <code node="[object Object]">getUserFromSession()</code> 메서드를 호출하고 호출된 메서드는 HttpSession으로 부터 “user”를 키값으로 갖는 속성값을 가져온다.
+만약 그러한 속성값이 존재하지 않을 경우 null을 반환하고, 존재할 경우 User 클래스로 다운 캐스팅하여 반환한다.</p>
+<p>만약 getUserFromSession()의 결과값이 null일 경우, 해당 회원의 로그인 정보가 세션에 저장되어 있지 않다는 뜻이기 때문에 false를 반환하며 그렇지 않을 경우 로그인 되어있는 회원임을 나타내는 true를 반환한다.</p>
+<p>다시 <code node="[object Object]">ListUserController</code> 클래스의 execute()의 로직을 살펴보면 UserSessionUtils.isLogined() 메서드의 결과값에 따라서
+<code node="[object Object]">RedirectView</code> 혹은 <code node="[object Object]">ForwardView</code> 를 생성자의 인자로 넘겨받아 ModelAndView 객체를 생성하여 반환한다.</p>
+<ul>
+<li>UserSessionUtils 전체 코드</li>
+</ul>
+<pre><div node="[object Object]" style="display:block;overflow-x:auto;padding:0.5em;color:#383a42;background:#fafafa"><code class="language-java" style="white-space:pre"><span style="color:#a626a4">package</span><span> next.controller;
+</span>
+<span></span><span style="color:#a626a4">import</span><span> next.model.User;
+</span>
+<span></span><span style="color:#a626a4">import</span><span> javax.servlet.http.HttpSession;
+</span>
+<span></span><span style="color:#a626a4">public</span><span> </span><span style="color:#a626a4">abstract</span><span> </span><span class="hljs-class" style="color:#a626a4">class</span><span class="hljs-class"> </span><span class="hljs-class" style="color:#4078f2">UserSessionUtils</span><span class="hljs-class"> </span><span>{
+</span><span>    </span><span style="color:#a626a4">public</span><span> </span><span style="color:#a626a4">static</span><span> </span><span style="color:#a626a4">final</span><span> String USER_SESSION_KEY = </span><span style="color:#50a14f">&quot;user&quot;</span><span>;
+</span>
+<span>    </span><span class="hljs-function" style="color:#a626a4">public</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">static</span><span class="hljs-function"> User </span><span class="hljs-function" style="color:#4078f2">getUserFromSession</span><span class="hljs-function hljs-params">(HttpSession session)</span><span class="hljs-function"> </span><span>{
+</span>        Object user = session.getAttribute(USER_SESSION_KEY);
+<span>        </span><span style="color:#a626a4">if</span><span> (user == </span><span style="color:#a626a4">null</span><span>) {
+</span><span>            </span><span style="color:#a626a4">return</span><span> </span><span style="color:#a626a4">null</span><span>;
+</span>        }
+<span>        </span><span style="color:#a626a4">return</span><span> (User) user;
+</span>    }
+<!-- -->
+<span>    </span><span class="hljs-function" style="color:#a626a4">public</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">static</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">boolean</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#4078f2">isLogined</span><span class="hljs-function hljs-params">(HttpSession session)</span><span class="hljs-function"> </span><span>{
+</span><span>        </span><span style="color:#a626a4">if</span><span> (getUserFromSession(session) == </span><span style="color:#a626a4">null</span><span>) {
+</span><span>            </span><span style="color:#a626a4">return</span><span> </span><span style="color:#a626a4">false</span><span>;
+</span>        }
+<span>        </span><span style="color:#a626a4">return</span><span> </span><span style="color:#a626a4">true</span><span>;
+</span>    }
+<!-- -->
+<span>    </span><span class="hljs-function" style="color:#a626a4">public</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">static</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#a626a4">boolean</span><span class="hljs-function"> </span><span class="hljs-function" style="color:#4078f2">isSameUser</span><span class="hljs-function hljs-params">(HttpSession session, User user)</span><span class="hljs-function"> </span><span>{
+</span><span>        </span><span style="color:#a626a4">if</span><span> (!isLogined(session)) {
+</span><span>            </span><span style="color:#a626a4">return</span><span> </span><span style="color:#a626a4">false</span><span>;
+</span>        }
+<!-- -->
+<span>        </span><span style="color:#a626a4">if</span><span> (user == </span><span style="color:#a626a4">null</span><span>) {
+</span><span>            </span><span style="color:#a626a4">return</span><span> </span><span style="color:#a626a4">false</span><span>;
+</span>        }
+<!-- -->
+<span>        </span><span style="color:#a626a4">return</span><span> user.isSameUser(getUserFromSession(session));
+</span>    }
+<!-- -->}</code></div></pre>
+<h2>5. View</h2>
+<p><code node="[object Object]">ModelAndView</code> 객체는 이름에서 알 수 있듯이 이동하고자 하는 View와 model이라는 이름의 HashMap 구조를 멤버변수로 포함하고 있다.</p>
+<p>ModelAndView는 Controller의 로직 처리 결과 후 응답할 View와 View에 전달할 값을 저장한다.</p>
+<p><img src="https://i.imgur.com/6qb8wGR.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p>앞서 살펴보았던 DispatcherServlet의 handle() 메서드를 마저 알아보도록 하자.</p>
+<p><img src="https://i.imgur.com/iqDt1QP.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p>인자로 전달받은 HandlerAdapter의 handle()을 호출하여 이동할 View
+(ListUserController의 경우 <code node="[object Object]">ForwardView</code> or <code node="[object Object]">RedirectView</code>)와 View에 전달할 모델(데이터)을 알고있는 <code node="[object Object]">ModelAndView</code> 객체가 반환된다.</p>
+<p>반환된 ModelAndView 객체의 <code node="[object Object]">getView()</code> 메서드를 통해서 이동할 View 구현체를 가져온다.
+그다음 View 인터페이스를 상속한 구현체가 정의한 <code node="[object Object]">render()</code> 함수를 호출하여 model 데이터를 인자로 넘겨주었다.</p>
+<p><img src="https://i.imgur.com/sHLtiFN.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p><img src="https://i.imgur.com/1uv52fY.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p>View 인터페이스의 구현체인 ForwardView는 JSP 파일이 저장된 경로인 <code node="[object Object]">viewPath</code> 를 멤버변수로 포함하고 있으며 render() 메서드가 호출되면
+<code node="[object Object]">modelToRequestAttribute()</code> 메서드를 호출하여 Model에 담긴 데이터를 전부 꺼내서 <code node="[object Object]">request.setAttibute</code> 에 다 넣어 주었다.
+(Model내 데이터를 전부 HttpServletRequest에 저장하는 이유는 아래에서 설명하도록 하겠다.)</p>
+<p>HttpServletRequest의 <code node="[object Object]">getRequestDispatcher(String)</code> 팩토리 메서드를 통해서 <code node="[object Object]">RequestDispatcher</code> 객체를 생성해주었고
+메서드의 인자로 viewPath를 주어서 제어권이 이동할 페이지의 경로를 지정하였다.</p>
+<p>RequestDispatcher의 <code node="[object Object]">forward(request, response)</code> 메서드는 getRequestDispatcher(String)의 인자로 주어진 경로의 자원으로 제어를 넘기는 역할을 한다.
+앞서 ListUserController 객체에서 ForwardView를 생성하면서 인자인 viewPath로 <code node="[object Object]">user/list.jsp</code> 를 명시해 주었기 때문에
+해당 jsp 파일로 제어가 넘어가게 되며 최종적으로 user/list.jsp의 처리 결과가 브라우저에 출력되게 된다.</p>
+<p>이때 forward(request, response) 메서드가 제어권을 다른 새로운 자원으로 넘겨주면서 인자로 HttpServletRequest 객체를 포함하기 때문에
+jsp 파일 내에서 필요한 데이터를 HttpServletRequest의 속성값에 저장해 줘야만 한다.</p>
+<p>때문에 앞에서 modelToRequestAttribute() 메서드를 호출하여 Model의 데이터를 request.setAttribute로 넘겨준 것이다.
+ModelAndView 객체내에 model이라는 이름의 필드값이 존재하지만 실질적인 Model의 역할은 HttpServletRequest가 담당하게 된다.</p>
+<p><code node="[object Object]">RedirectView</code>는 생성자로 redirectPath를 넘겨받으며 <code node="[object Object]">HttpServletResponse</code> 의 <code node="[object Object]">sendRedirect(String)</code> 메서드를 호출한다.</p>
+<p><img src="https://i.imgur.com/m5fA7u6.png" alt="Post image" node="[object Object]" style="max-height:450px;max-width:90%"/></p>
+<p>sendRedirect(String) 메서드 또한 forward(request, response)와 마찬가지로 인자로 넘어온 경로로 제어를 이동시킨다.</p>
+<p>하지만 두 메서드는 다음과 같은 차이점이 존재한다.</p>
+<p><strong>Redirect 와 forward의 차이점</strong></p>
+<ul>
+<li><code node="[object Object]">redirect</code>
+<ul>
+<li>실제 클라이언트에 응답이 갔다가, 클라이언트가 redirect경로로 다시 요청 → url경로 변경 O</li>
+<li>요청이 처리되기 위해 다른 자원이나 다른 서버로 전달된다.</li>
+<li>HttpServletRequest, Response에 저장되어있던 속성값들이 전부 초기화된다.<!-- -->
+<ul>
+<li>브라우저는 redirect 요청을 아예 새로운 요청으로 간주한다.</li>
+<li>만약 새로운 자원에서 기존 속성값들을 사용하고 싶다면 세션에 저장하거나 URL과 함께 전달해야한다.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code node="[object Object]">forward</code>
+<ul>
+<li>서버 내부에서 일어나는 호출 → url 경로 변경 X<!-- -->
+<ul>
+<li>웹 컨테이너가 모든 과정을 처리하고 클라이언트나 브라우저는 포함되지 않는다.</li>
+</ul>
+</li>
+<li>요청이 처리되기 위해 같은 서버의 다른 자원에 전달된다.</li>
+<li>forward 메서드는 인자로 HttpRequest, Response 객체를 넘겨주기 때문에 새로운 자원으로 제어권이 넘어가서 과정이 처리되더라도 request 객체 내의 이전 데이터를 사용할 수 있다.<!-- -->
+<ul>
+<li>때문에 model 내 모든 데이터를 request.setAttribute()로 옮기는 작업을 수행하였다.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>최종적으로 jsp파일로 화면 구성에 필요한 데이터가 전달되며 사용자의 요청에 해당하는 결과값이 출력되게 된다.</p>
+<h2>마치며</h2>
+<p>지금까지 간단한 MVC 프레임워크를 만들어 보았다.</p>
+<p>하지만 아직 부족한 부분이 많이 보인다. 스프링 MVC 프레임워크가 다른 MVC 프레임워크와 비교해서 우위를 가져가기 시작한 시점은 바로 어노테이션 기반의 MVC 프레임워크를 도입하면서 부터였다.</p>
+<p>지금의 MVC 프레임워크는 어노테이션 기반이 아니며 동일한 URI여도 다른 HttpMethod라면 다르게 인식해야 하는데 그렇지 못하고 있다.</p>
+<p>다음 포스팅에서는 이러한 문제점을 개선하며 점진적 리팩토링 과정을 거쳐서 어노테이션 기반의 MVC 프레임워크로 개선하는 과정을 다뤄보도록 하겠다.</p>
+<hr/>
+<h3>참고자료 📚</h3>
+<p><a href="https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html">HttpServlet (Java(TM) EE 7 Specification APIs)</a></p>
+<p><a href="https://stackoverflow.com/questions/2047122/requestdispatcher-forward-vs-httpservletresponse-sendredirect">RequestDispatcher.forward() vs HttpServletResponse.sendRedirect()</a></p>
+<p><a href="https://m.blog.naver.com/jhc9639/220967034588">[개발자 면접준비]#1. MVC패턴이란</a></p>
+<p><a href="https://u-it.tistory.com/m/entry/%ED%8E%98%EC%9D%B4%EC%A7%80%EC%B6%9C%EB%A0%A5-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%A0%84%ED%99%98-%EB%B0%8F-%ED%8A%B9%EC%A0%95-url%EB%A1%9C-%EC%9E%AC-%EC%9A%94%EC%B2%AD-%EC%9D%84-%ED%95%B4%EC%A3%BC%EB%8A%94-RequestDispatcher-%EC%9D%98-requestgetRequestDispatcherforward-HttpServletResponse%EC%9D%98-responsesendRedirect">페이지출력, 페이지전환 및 특정 url로 재 요청 을 해주는 RequestDispatcher 의 request.getRequestDispatcher()/forward() / HttpServletResponse의 response.sendRedirect()</a></p>
+<p><a href="https://mangkyu.tistory.com/m/14">[JSP] 서블릿(Servlet)이란?</a></p></div><section></section></div></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"postData":{"id":"post12","lang":"ko","title":"MVC 프레임워크 만들기 - MVC 1편","thumbnail":"https://i.imgur.com/b9vvtK7.png","section":"tech","tags":"Spring, MVC","date":"2022-10-08 10:00","preview":"\n7월에 [넥스트 스텝](https://edu.nextstep.camp/)에서 진행하는 [만들면서 배우는 스프링 3기](https://edu.nextstep.camp/s/I7LCaCf3)에 참여하였습니다.\n\n이 포스트는 해당 과정에서 스스로 고민하며 "},"detail":"\n7월에 [넥스트 스텝](https://edu.nextstep.camp/)에서 진행하는 [만들면서 배우는 스프링 3기](https://edu.nextstep.camp/s/I7LCaCf3)에 참여하였습니다.\n\n이 포스트는 해당 과정에서 스스로 고민하며 MVC 프레임워크를 차근 차근 구현해보았던 과정입니다.\n\n## 1. MVC 패턴의 탄생\n\n### 1.1 Servlet, JSP, Model\n\nMVC 구현 과정을 살펴보기 이전에 MVC 패턴이 무엇이고 어떤 과정을 통해서 발전하였는지 개념을 짚고 넘어가도록 하자.\n\n초기 자바 진영에서는 동적인 웹 페이지를 구현하기 위한 표준으로 [서블릿](https://mangkyu.tistory.com/m/14)이 등장하였다. 서블릿은 WAS의 tcp/ip 연결, 멀티 쓰레드 관리등을 담당하였으며 사용자 요청에 대한 처리와 처리 결과에 따른 응답을 생성해서 HTML 파일을 클라이언트에게 반환하는 역할을 하였다.\n\n하지만 서블릿은 자바 코드로 작성되기 때문에 HTML 파일을 생성하기 어렵다는 단점이 존재했고, 화면 출력 로직을 담당하는 `템플릿 엔진` (JSP, Thymeleaf …)이 등장했다.\n\nJSP의 등장으로 HTML 파일 생성은 쉬워졌지만 JSP가 비즈니스 로직까지 너무 많은 역할을 담당한다는 단점이 여전히 존재했다. (하나의 JSP파일에 코드가 수천줄이 넘어가고 유지보수가 어려웠다.)\nUI와 로직의 역할 분리가 제대로 이뤄지지 않았기 때문에 간단한 UI를 변경하더라도 로직까지 함께 수정해야 하는 등 변경 라이프 사이클이 맞지 않았기 때문에 유지보수에 좋은 구조라고 볼 수도 없었다.\n\n유지보수에 유연한 구조를 생성하고자 어플리케이션 구성 요소의 관심사를 분리한 MVC 패턴을 도입하였으며 서블릿, JSP 조합 MVC 패턴을 통해서 로직과 뷰 부분을 나누어서 개발하기 시작했다. 이후 MVC 패턴을 기반으로한 여러 MVC 프레임워크가 등장하기 시작했다 (스트럿츠, 스프링 MVC 등)\n\n![](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/ModelViewControllerDiagram2.svg/1200px-ModelViewControllerDiagram2.svg.png)\n출처 - 위키피디아\n\n- **MVC 패턴의 구성 요소**\n    - `Controller`\n        - HTTP 요청을 받아서 파라미터를 검증하고 비즈니스 로직을 실행하는 역할.\n        - View에 전달할 결과 데이터를 조회해서 Model에 담는 책임을 수행한다.\n    - `Model`\n        - View에 출력할 데이터를 저장한다.\n        - (View는 로직이 처리된 결과 데이터가 Model에 담겨서 전달되기 때문에 비즈니스 로직이나 데이터 접근을 몰라도된다. 오직 화면 렌더링 역할에만 최적화 될 수 있다.)\n    - `View`\n        - `Model` 에 담긴 데이터를 사용하여 화면을 렌더링하는 책임을 수행한다.\n        \n\n### 1.2 Front Controller 패턴\n\n초기 MVC 패턴에서 클라이언트들은  서로 다른 Controller를 호출하였으며 공통 코드들이 각 Controller에 포함되어있었다.\n\n코드의 중복을 없에기 위해서 모든 Controller로 가기 위한 입구 역할을 하는 Front Controller 패턴을 MVC 프레임워크에 도입하였다.\n\n![스크린샷 2022-10-09 오후 6.28.21.png](https://i.imgur.com/e0ZXbT7.png)\n\n바로 이 Front Controller가 Spring MVC 프레임워크의 `DispatcherServlet` 이며 다음과 같은 역할을 수행한다.\n\n- 클라이언트의 요청을 받아서 요청 (uri)에 맞는 컨트롤러를 찾아 호출.\n- 공통 기능을 처리.\n    - 덕분에 Front Controller를 제외한 나머지 Controller는 Servlet을 사용하지 않아도 된다.\n\n더 자세한 내용은 해당 [링크](https://www.baeldung.com/java-front-controller-pattern)를 통해서 알아보기로 하고 이제부터는 코드를 살펴보도록 하자.\n\n## 2. DispatcherServlet\n\nFront Controller의 역할을 하는 DispatcherServlet 클래스 코드를 만들어보자.\n\n### 2.1 기능 구현\n\n가장 먼저 [HttpServlet](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html) 인터페이스를 상속받아서 [init() 과 service()](https://docs.oracle.com/javaee/6/api/javax/servlet/Servlet.html#:~:text=init,-void%20init(ServletConfig\u0026text=config)%20throws%20ServletException-,Called%20by%20the%20servlet%20container%20to%20indicate%20to%20a%20servlet,servlet%20can%20receive%20any%20requests.) 메서드를 다음과 같이 구현하였다.\n\n![스크린샷 2022-10-09 오후 10.53.15.png](https://i.imgur.com/ptoieWN.png)\n\n`init()` 메서드는 서블릿 컨테이너에 의해 한번 호출되면서 필드값에 값을 주입하게 된다.\n\n필드값은 `RequestMapping` 과 `HandlerAdapterStorage` 객체를 선언하였는데, 각각 initMapping(), init() 메서드가 호출된다.\n\n- `HandlerAdapterStorage` - init()\n    - 어댑터를 등록한다.\n    - HandlerExecution 객체와 SimpleControllerHandlerAdapter 객체의 인스턴스를 생성하여 handlerAdapters 리스트에 **순서 대로** 추가한다.\n\n여기서 순서대로 어댑터들이 저장된것을 주의해야 하는데, 동일한 URI를 처리하는 어댑터가 여러개 존재하더라도 우선순위를 부여하기 위함이다. 이후에 `getHandlerAdapter()` 메서드가 호출되면 `HandlerExecution` → `SimpleControllerHandlerAdapter` 순으로 리스트에서 객체를 가져와서 인자로 주어진 handler를 지원하는지 여부를 검사한다.\n\n\u003e **Handler** 라는 용어가 어색할 수 있는데, Handler는 더 넓은 의미에서의 Controller를 뜻하며 현재 포스트에서는 Handler와 Controller를 같은 의미로 받아들여도 좋다.\n\n  ![스크린샷 2022-10-09 오후 10.50.52.png](https://i.imgur.com/CtG6FlS.png)\n\n- `ReqeustMapping` - initMapping()\n    - 특정 requestURI를 처리할 수 있는 컨트롤러 객체를 생성한 다음 URI와 매핑하여 HashMap에 저장한다.\n\n    ![스크린샷 2022-08-23 오전 3.01.41.png](https://i.imgur.com/oNV68VT.png)\n\n## 2.1.1 service 메서드\n\n`service(request, response)` 메서드는 DispatcherServlet의 init() 메서드가 성공적으로 수행되었을때 서블릿 컨테이너에 의해서 호출된다.\n\n![스크린샷 2022-10-09 오후 11.00.31.png](https://i.imgur.com/KKZ6gds.png)\n\nservice 메서드의 핵심 로직을 살펴보도록 하자.\n\n- `getHandler(request)` - requestURI와 매핑되는 Controller를 찾아온다.\n- `requestMapping.findController(requestURI)` 메서드는 RequestMapping 객체내 URI를 키값으로 하는 값(Controller)을 반환한다. \n    ![스크린샷 2022-10-09 오후 11.04.15.png](https://i.imgur.com/pF0xb8p.png)\n    \n\n- 찾은 Controller를 지원하는 HandlerAdapter를 찾는다.\n- HandlerAdapter는 지원하는 Controller에 구현된 handle 메서드를 수행하고 ModelAndView 객체를 반환한다.\n    \n    ![스크린샷 2022-10-09 오후 11.02.43.png](https://i.imgur.com/6r7svKL.png)\n    \n\n### 2.2 DispatcherServlet 전체 코드\n\n```java\npackage core.mvc.asis;\n\nimport core.mvc.ModelAndView;\nimport core.mvc.tobe.*;\nimport core.mvc.view.View;\nimport exception.NotFoundException;\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\nimport org.springframework.http.HttpStatus;\n\nimport javax.servlet.ServletException;\nimport javax.servlet.annotation.WebServlet;\nimport javax.servlet.http.HttpServlet;\nimport javax.servlet.http.HttpServletRequest;\nimport javax.servlet.http.HttpServletResponse;\n\n@WebServlet(name = \"dispatcher\", urlPatterns = \"/\", loadOnStartup = 1)\npublic class DispatcherServlet extends HttpServlet {\n    private static final long serialVersionUID = 1L;\n    private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);\n\n    private HandlerAdapterStorage handlerAdapterStorage;\n    private RequestMapping requestMapping;\n\n    @Override\n    public void init() {\n        handlerAdapterStorage = new HandlerAdapterStorage();\n        handlerAdapterStorage.init();\n\n        requestMapping = new RequestMapping();\n        requestMapping.initMapping();\n    }\n\n    @Override\n    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException {\n        Object handler = getHandler(request);\n        if (handler == null) {\n            throw new NotFoundException(HttpStatus.NOT_FOUND);\n        }\n        HandlerAdapter adapter = handlerAdapterStorage.getHandlerAdapter(handler);\n        handleAdapter(request, response, handler, adapter);\n    }\n\n    private void handleAdapter(HttpServletRequest request, HttpServletResponse response,\n                               Object handler, HandlerAdapter adapter) throws ServletException {\n        try {\n            handle(request, response, handler, adapter);\n        } catch (Exception e) {\n            logger.error(\"Exception: {}\", e.getMessage());\n            throw new ServletException(e.getMessage());\n        }\n    }\n\n    private void handle(HttpServletRequest request, HttpServletResponse response,\n                        Object handler, HandlerAdapter adapter) throws Exception {\n        ModelAndView modelAndView = adapter.handle(request, response, handler);\n        View view = modelAndView.getView();\n        view.render(modelAndView.getModel(), request, response);\n    }\n\n    private Object getHandler(HttpServletRequest request) {\n        String requestURI = request.getRequestURI();\n        logger.debug(\"Method: {}, RequestURI: {}\", request.getMethod(), requestURI);\n        return requestMapping.findController(requestURI);\n    }\n}\n```\n\n## 3. HandlerAdapter\n\n- HandlerAdapter란?\n    - `HandlerAdapter`\n        - DispatcherServlet과 Controller 사이에 HandlerAdpater를 위치시켜서 DispatcherServlet이 다양한 형태의 Handler(Controller)를 호출할 수 있게 한다.\n    - `어뎁터 패턴`\n        - 기존 코드를 클라이언트가 사용하는 인터페이스의 구현체로 바꿔주는 패턴\n        - 어뎁터 패턴을 사용하여 DispatcherServlet이 다양한 반환 타입의 컨트롤러를 처리할 수 있게 한다.\n        - 장점\n            - 기존 코드를 변경하지 않고 원하는 인터페이스 구현체를 만들어 재사용 가능\n            - 기존 코드가 하던 일과 특정 인터페이스 구현체로 변환하는 작업을 각기 다른 클래스로 분리하여 관리가 가능\n        - 단점\n            - 복잡도 증가. 때에 따라서 기존 코드가 해당 인터페이스를 구현하도록 수정하는 것이 좋은 선택이 될 수 있다.\n\n다양한 어댑터를 유연하게 사용하기 위한 `HandlerAdapter` 인터페이스를 선언해 주었다.\n\n![스크린샷 2022-10-09 오후 11.11.31.png](https://i.imgur.com/CF6LYyF.png)\n\n- `boolean supports(Object handler)`\n    - 어댑터가 핸들러(컨트롤러)를 처리할 수 있는지 여부를 판단한다.\n- `ModelAndView handle(HttpServletRequest, HttpServletResponse, Object)`\n    - 어댑터가 실제 컨트롤러를 호출하고 결과로 ModelAndView를 반환 한다.\n    - 컨트롤러가 ModelAndView를 반환하지 못하면 어댑터가 ModelAndView를 생성해서 반환 한다.\n\n### 3.1 SimpleControllerHandlerAdapter\n\nHandlerAdapter 인터페이스의 구현체인 `SimpleControllerHandlerAdapter` 객체를 살펴보면 `support()` 의 인자로 주어진 handler가 Controller 인터페이스를 구현한 객체일 경우 true를, 그렇지 않을 경우 false를 반환한다.\n\n![스크린샷 2022-10-09 오후 11.14.21.png](https://i.imgur.com/9UjRZsq.png)\n\n`handle()` 메서드는 아래와 같이 DispatcherServlet의 `handlerAdater()` → `handle()` → `adapter.handle()` 메서드에 의해서 호출된다.\n\n![스크린샷 2022-10-09 오후 11.02.43.png](https://i.imgur.com/BA0tMbg.png)\n\n만약 요청 uri를 처리할 수 있는 Controller를 알고있는 어댑터가 `SimpleControllerHandlerAdapter`일 경우, SimpleControllerHandlerAdapter의 handle 메서드가 호출된다.\nhandle() 메서드의 인자로 받아온 handler 객체를 Controller로 다운캐스팅 한 다음 `execute()` 메서드를 호출하여 Controller가 로직을 수행하도록 요청하게 된다.\n\n## 4. Controller\n\nController 인터페이스를 다음과 같이 정의하였고 그 구현체로 다양한 URI를 처리할 수 있는 각각의 Controller 구현체를 구현해 주었다. (HomeController, ForwardController, ListUserController …)\n\n![스크린샷 2022-10-09 오후 11.16.06.png](https://i.imgur.com/NwEgKVD.png)\n\n`exeute()` 메서드가 호출되었을때 어떤 로직이 수행되는지 Controller 인터페이스의 구현체인 `ListUserController` 를 예로 알아보도록 하자 .\n\n### 4.1 execute 메서드\n\n![스크린샷 2022-10-09 오후 11.20.09.png](https://i.imgur.com/L8po0KF.png)\n\nListUserController는 로그인되어있는 상태라면 모든 회원정보를 출력하는 `list.jsp` 파일을 렌더링하고, 그렇지 않은 상태라면 사용자가 로그인을 먼저 하고 다시 요청할 수 있게끔 로그인 폼으로 리다이렉트하는 로직을 수행한다.\n\n이때 사용자의 로그인 상태 여부를 확인하기 위해서 `HttpServletRequest` 의 `getSession()` 메서드를 통해 HttpSession 정보를 isLogined 메서드의 인자로 넘겨주게 되는데 HttpServeltRequest가 Controller에게 데이터를 전달하는 MVC 패턴의 **Model** 역할을 하게 되는 것이다.\n\n좀 더 로직을 자세히 알아보기 위해서 UserSessionUtils 객체를 어떻게 구현하였는지 알아보도록 하자.\n\n### 4.1.1 UserSessionUtils\n\nstatic 멤버만을 저장하는 유틸성 클래스이기 때문에 객체 생성을 막고자 추상 클래스로 선언해 주었다.\n\n![스크린샷 2022-10-18 오후 8.37.24.png](https://i.imgur.com/cymChPc.png)\n\n앞서 `ListUserController` 의 `execute()` 메서드에서 호출된 `UserSessionUtils.isLogined()` 메서드를 살펴보도록 하겠다.\n\n조건문에서 `getUserFromSession()` 메서드를 호출하고 호출된 메서드는 HttpSession으로 부터 “user”를 키값으로 갖는 속성값을 가져온다.\n만약 그러한 속성값이 존재하지 않을 경우 null을 반환하고, 존재할 경우 User 클래스로 다운 캐스팅하여 반환한다.\n\n만약 getUserFromSession()의 결과값이 null일 경우, 해당 회원의 로그인 정보가 세션에 저장되어 있지 않다는 뜻이기 때문에 false를 반환하며 그렇지 않을 경우 로그인 되어있는 회원임을 나타내는 true를 반환한다.\n\n다시 `ListUserController` 클래스의 execute()의 로직을 살펴보면 UserSessionUtils.isLogined() 메서드의 결과값에 따라서 \n`RedirectView` 혹은 `ForwardView` 를 생성자의 인자로 넘겨받아 ModelAndView 객체를 생성하여 반환한다.\n\n- UserSessionUtils 전체 코드\n\n```java\npackage next.controller;\n\nimport next.model.User;\n\nimport javax.servlet.http.HttpSession;\n\npublic abstract class UserSessionUtils {\n    public static final String USER_SESSION_KEY = \"user\";\n\n    public static User getUserFromSession(HttpSession session) {\n        Object user = session.getAttribute(USER_SESSION_KEY);\n        if (user == null) {\n            return null;\n        }\n        return (User) user;\n    }\n\n    public static boolean isLogined(HttpSession session) {\n        if (getUserFromSession(session) == null) {\n            return false;\n        }\n        return true;\n    }\n\n    public static boolean isSameUser(HttpSession session, User user) {\n        if (!isLogined(session)) {\n            return false;\n        }\n\n        if (user == null) {\n            return false;\n        }\n\n        return user.isSameUser(getUserFromSession(session));\n    }\n}\n```\n\n## 5. View\n\n`ModelAndView` 객체는 이름에서 알 수 있듯이 이동하고자 하는 View와 model이라는 이름의 HashMap 구조를 멤버변수로 포함하고 있다.\n\nModelAndView는 Controller의 로직 처리 결과 후 응답할 View와 View에 전달할 값을 저장한다.\n\n![스크린샷 2022-08-23 오전 3.05.00.png](https://i.imgur.com/6qb8wGR.png)\n\n앞서 살펴보았던 DispatcherServlet의 handle() 메서드를 마저 알아보도록 하자. \n\n![스크린샷 2022-10-09 오후 11.02.43.png](https://i.imgur.com/iqDt1QP.png)\n\n인자로 전달받은 HandlerAdapter의 handle()을 호출하여 이동할 View\n(ListUserController의 경우 `ForwardView` or `RedirectView`)와 View에 전달할 모델(데이터)을 알고있는 `ModelAndView` 객체가 반환된다.\n\n반환된 ModelAndView 객체의 `getView()` 메서드를 통해서 이동할 View 구현체를 가져온다.\n그다음 View 인터페이스를 상속한 구현체가 정의한 `render()` 함수를 호출하여 model 데이터를 인자로 넘겨주었다.\n\n![스크린샷 2022-08-23 오전 3.05.28.png](https://i.imgur.com/sHLtiFN.png)\n\n![스크린샷 2022-08-23 오전 3.06.57.png](https://i.imgur.com/1uv52fY.png)\n\nView 인터페이스의 구현체인 ForwardView는 JSP 파일이 저장된 경로인 `viewPath` 를 멤버변수로 포함하고 있으며 render() 메서드가 호출되면 \n`modelToRequestAttribute()` 메서드를 호출하여 Model에 담긴 데이터를 전부 꺼내서 `request.setAttibute` 에 다 넣어 주었다. \n(Model내 데이터를 전부 HttpServletRequest에 저장하는 이유는 아래에서 설명하도록 하겠다.)\n\nHttpServletRequest의 `getRequestDispatcher(String)` 팩토리 메서드를 통해서 `RequestDispatcher` 객체를 생성해주었고 \n메서드의 인자로 viewPath를 주어서 제어권이 이동할 페이지의 경로를 지정하였다.\n\nRequestDispatcher의 `forward(request, response)` 메서드는 getRequestDispatcher(String)의 인자로 주어진 경로의 자원으로 제어를 넘기는 역할을 한다. \n앞서 ListUserController 객체에서 ForwardView를 생성하면서 인자인 viewPath로 `user/list.jsp` 를 명시해 주었기 때문에 \n해당 jsp 파일로 제어가 넘어가게 되며 최종적으로 user/list.jsp의 처리 결과가 브라우저에 출력되게 된다.\n\n이때 forward(request, response) 메서드가 제어권을 다른 새로운 자원으로 넘겨주면서 인자로 HttpServletRequest 객체를 포함하기 때문에\njsp 파일 내에서 필요한 데이터를 HttpServletRequest의 속성값에 저장해 줘야만 한다.\n\n때문에 앞에서 modelToRequestAttribute() 메서드를 호출하여 Model의 데이터를 request.setAttribute로 넘겨준 것이다.\nModelAndView 객체내에 model이라는 이름의 필드값이 존재하지만 실질적인 Model의 역할은 HttpServletRequest가 담당하게 된다.\n\n`RedirectView`는 생성자로 redirectPath를 넘겨받으며 `HttpServletResponse` 의 `sendRedirect(String)` 메서드를 호출한다.\n\n![스크린샷 2022-08-23 오전 3.07.16.png](https://i.imgur.com/m5fA7u6.png)\n\nsendRedirect(String) 메서드 또한 forward(request, response)와 마찬가지로 인자로 넘어온 경로로 제어를 이동시킨다. \n\n하지만 두 메서드는 다음과 같은 차이점이 존재한다.\n\n**Redirect 와 forward의 차이점**\n\n- `redirect`\n    - 실제 클라이언트에 응답이 갔다가, 클라이언트가 redirect경로로 다시 요청 → url경로 변경 O\n    - 요청이 처리되기 위해 다른 자원이나 다른 서버로 전달된다.\n    - HttpServletRequest, Response에 저장되어있던 속성값들이 전부 초기화된다.\n        - 브라우저는 redirect 요청을 아예 새로운 요청으로 간주한다.\n        - 만약 새로운 자원에서 기존 속성값들을 사용하고 싶다면 세션에 저장하거나 URL과 함께 전달해야한다.\n- `forward`\n    - 서버 내부에서 일어나는 호출 → url 경로 변경 X\n        - 웹 컨테이너가 모든 과정을 처리하고 클라이언트나 브라우저는 포함되지 않는다.\n    - 요청이 처리되기 위해 같은 서버의 다른 자원에 전달된다.\n    - forward 메서드는 인자로 HttpRequest, Response 객체를 넘겨주기 때문에 새로운 자원으로 제어권이 넘어가서 과정이 처리되더라도 request 객체 내의 이전 데이터를 사용할 수 있다.\n        - 때문에 model 내 모든 데이터를 request.setAttribute()로 옮기는 작업을 수행하였다.\n\n최종적으로 jsp파일로 화면 구성에 필요한 데이터가 전달되며 사용자의 요청에 해당하는 결과값이 출력되게 된다.\n\n## 마치며\n\n지금까지 간단한 MVC 프레임워크를 만들어 보았다.\n\n하지만 아직 부족한 부분이 많이 보인다. 스프링 MVC 프레임워크가 다른 MVC 프레임워크와 비교해서 우위를 가져가기 시작한 시점은 바로 어노테이션 기반의 MVC 프레임워크를 도입하면서 부터였다. \n\n지금의 MVC 프레임워크는 어노테이션 기반이 아니며 동일한 URI여도 다른 HttpMethod라면 다르게 인식해야 하는데 그렇지 못하고 있다.\n\n다음 포스팅에서는 이러한 문제점을 개선하며 점진적 리팩토링 과정을 거쳐서 어노테이션 기반의 MVC 프레임워크로 개선하는 과정을 다뤄보도록 하겠다.\n\n---\n\n### 참고자료 📚\n\n[HttpServlet (Java(TM) EE 7 Specification APIs)](https://docs.oracle.com/javaee/7/api/javax/servlet/http/HttpServlet.html)\n\n[RequestDispatcher.forward() vs HttpServletResponse.sendRedirect()](https://stackoverflow.com/questions/2047122/requestdispatcher-forward-vs-httpservletresponse-sendredirect)\n\n[[개발자 면접준비]#1. MVC패턴이란](https://m.blog.naver.com/jhc9639/220967034588)\n\n[페이지출력, 페이지전환 및 특정 url로 재 요청 을 해주는 RequestDispatcher 의 request.getRequestDispatcher()/forward() / HttpServletResponse의 response.sendRedirect()](https://u-it.tistory.com/m/entry/%ED%8E%98%EC%9D%B4%EC%A7%80%EC%B6%9C%EB%A0%A5-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%A0%84%ED%99%98-%EB%B0%8F-%ED%8A%B9%EC%A0%95-url%EB%A1%9C-%EC%9E%AC-%EC%9A%94%EC%B2%AD-%EC%9D%84-%ED%95%B4%EC%A3%BC%EB%8A%94-RequestDispatcher-%EC%9D%98-requestgetRequestDispatcherforward-HttpServletResponse%EC%9D%98-responsesendRedirect)\n\n[[JSP] 서블릿(Servlet)이란?](https://mangkyu.tistory.com/m/14)\n","lang":"ko","allPostsInOtherLang":[{"id":"post9","lang":"en","title":"Solving the Billion-Dollar Mistake: Modern Java Null Safety with JSpecify and NullAway","date":"2025-09-24","section":"tech","tags":"Null Safety","thumbnail":"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftotx4mdagz9nsegld5mr.png","description":"Learn how to eliminate NullPointerExceptions using JSpecify annotations and NullAway static analysis in modern Java applications","searchKeywords":"JSpecify, NullAway, Java null safety, NullPointerException prevention, static analysis","preview":"\nWhether you're a developer just starting with Java or a senior engineer with two decades of experience, the most frequently encountered err"},{"id":"post8","lang":"en","title":"PostgreSQL MVCC Internals: From xmin/xmax to Isolation Levels","date":"2025-07-06","section":"tech","tags":"PostgreSQL","thumbnail":"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F7rk467sodudw3ww7iisi.png","description":"Deep dive into PostgreSQL's MVCC implementation, understanding xmin/xmax and how different isolation levels work internally","searchKeywords":"PostgreSQL, MVCC, xmin, xmax, transaction, isolation level, concurrency control","preview":"\nWhen multiple users access a database concurrently, how can we guarantee Isolation, one of the core `ACID` properties? While we could apply"},{"id":"post7","lang":"en","title":"Prompt Engineering Tips from Anthropic Engineers","date":"2025-06-24","section":"tech","tags":"Prompt Engineering, AI, Anthropic, LLM","thumbnail":"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fdzzrfth8zqdnrhbj9538.png","description":"Valuable prompt engineering tips and insights from Anthropic engineers","searchKeywords":"prompt engineering, AI tips, Anthropic, LLM best practices","preview":"\nHere are a few impressive points from [youtube (AI prompt engineering: A deep dive)](https://www.youtube.com/watch?v=T9aRN5JkmL8\u0026t=2463s) w"},{"id":"post6","lang":"en","title":"From Theory to Practice: A JMH Showdown Between Sequential and Parallel Streams","date":"2025-06-15","section":"tech","tags":"Java, JMH","thumbnail":"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F7ytq239pcfe279t9avzg.png","description":"Practical performance comparison between sequential and parallel streams using JMH benchmarking","searchKeywords":"JMH benchmark, Java performance, sequential vs parallel, stream optimization","preview":"\nIn our [previous post](https://dev.to/headf1rst/discover-how-forkjoinpool-powers-javas-high-performance-parallel-processing-3pn7), we delve"},{"id":"post5","lang":"en","title":"Discover how ForkJoinPool powers Java's high-performance parallel processing","date":"2025-06-03","section":"tech","tags":"ForkJoinPool","thumbnail":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qgawc6pj2vbyzuem20wn.png","description":"Understanding ForkJoinPool and how it powers Java's parallel stream processing","searchKeywords":"ForkJoinPool, Java parallel processing, work-stealing, parallelStream","preview":"\nRecently, I optimized our transport operation plan Excel upload feature, boosting performance for logistics system administrators. This too"},{"id":"post4","lang":"en","title":"Why @Transactional Sometimes Fails: A Deep Dive into Spring AOP Proxies","section":"tech","date":"2025-06-01","tags":"AOP, Transactional","thumbnail":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a1wxef2amdixh3lr4any.png","description":"Understanding Spring AOP proxies and why @Transactional sometimes fails with internal method calls","searchKeywords":"Spring AOP, @Transactional, proxy pattern, self-invocation","preview":"\n## How @Transactional Works\n\n### Transaction Management via AOP and the Proxy Pattern\n\nAOP (Aspect-Oriented Programming) is a programming p"},{"id":"post3","lang":"en","title":"Java ClassLoaders: How the JVM Dynamically Loads \u0026 Executes Your Code","section":"tech","date":"2025-05-27","tags":"Java","thumbnail":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/iu4pe4d29jz23wt26kwz.png","description":"Deep dive into Java ClassLoaders and JVM's dynamic class loading mechanisms","searchKeywords":"Java ClassLoader, JVM, dynamic loading, class loading process","preview":"\nJava's \"Write Once, Run Anywhere\" principle is foundational to its sustained popularity. This portability is powered by the Java Virtual Ma"},{"id":"post2","lang":"en","title":"Understanding and Resolving the N+1 Query Problem in JPA","section":"tech","date":"2025-05-05","tags":"JPA, Hibernate, N+1 Problem","thumbnail":"https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fsrf6chohgt3athvqj7u1.png","description":"Learn what causes the N+1 query problem in JPA, how to identify it, and practical solutions using fetch joins, EntityGraph, and QueryDSL","searchKeywords":"JPA, N+1, Hibernate, performance, optimization, fetch join, EntityGraph, QueryDSL","preview":"\nThe **N+1 query problem** arises when one initial query (1) is followed by N additional queries—one for each result row from the first quer"},{"id":"post1","lang":"en","title":"Kafka Producer Stability Check: Ensuring Message Safety in Apache Kafka","section":"tech","date":"2025-05-04","tags":"Kafka, Producer, Reliability, Apache Kafka","thumbnail":"https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ojt2w7s7rr9kws35r2yg.png","description":"Learn how to build fault-tolerant Kafka producers that survive rolling patches and broker failures","searchKeywords":"Kafka, producer, reliability, message safety, rolling patch, broker failure","preview":"\nDuring a recent incident, our team observed message loss from a Kafka producer during an Amazon MSK rolling patch. What began as a routine "}]},"__N_SSG":true},"page":"/[lang]/[id]","query":{"lang":"ko","id":"post12"},"buildId":"yGW32L9T_cXTLRlN1Fygt","assetPrefix":"/log","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
