@@ -58,7 +58,7 @@ function ScrollSpy() {
         <li
           className={classNames(
             section.nodeName === "H2" ? "pl-5" : "",
-            "dark:text-[#c9d1d9] "
+            "mb-3 py-1 dark:text-[#c9d1d9] leading-relaxed"
           )}
           key={section.textContent}
         >
