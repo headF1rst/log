@@ -31,19 +31,7 @@ function Header() {
 
   const onLangChange = (newLang: SupportedLang) => {
     setShowLangMenu(false);
-    
-    const currentPath = router.asPath;
-    const pathParts = currentPath.split('/').filter(Boolean);
-    
-    if (pathParts.length > 0 && ['ko', 'en'].includes(pathParts[0])) {
-      pathParts[0] = newLang;
-    } else {
-      pathParts.unshift(newLang);
-    }
-
-    const newPath = '/' + pathParts.join('/');
-    router.push(newPath);
-    
+    router.push(`/${newLang}`);
     localStorage.setItem('preferred-lang', newLang);
   };
 
