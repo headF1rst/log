@@ -6,6 +6,7 @@ tags: "Prompt Engineering, AI, Anthropic, LLM"
 thumbnail: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fdzzrfth8zqdnrhbj9538.png"
 description: "Valuable prompt engineering tips and insights from Anthropic engineers"
 searchKeywords: "prompt engineering, AI tips, Anthropic, LLM best practices"
+translationSlug: "post22"
 ---
 
 Here are a few impressive points from [youtube (AI prompt engineering: A deep dive)](https://www.youtube.com/watch?v=T9aRN5JkmL8&t=2463s) where Anthropic engineers shared their prompt writing tips and experiences.

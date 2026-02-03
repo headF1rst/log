@@ -6,6 +6,7 @@ tags: "Java, JSpecify, Null 안전성, NullPointerException, 정적 분석"
 thumbnail: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftotx4mdagz9nsegld5mr.png"
 description: "JSpecify 어노테이션과 NullAway 정적 분석을 사용하여 현대 Java 애플리케이션에서 NullPointerException을 제거하는 방법 학습"
 searchKeywords: "JSpecify, NullAway, Java null 안전성, NullPointerException 방지, 정적 분석"
+translationSlug: "post9"
 ---
 
 자바 프로그래밍을 처음 시작한 개발자부터 20년 경력의 시니어 개발자까지, 경력을 불문하고 개발자들이 가장 자주 마주치는 에러는 **NullPointerException**일 것입니다.

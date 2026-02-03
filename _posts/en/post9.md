@@ -6,6 +6,7 @@ tags: "Null Safety"
 thumbnail: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftotx4mdagz9nsegld5mr.png"
 description: "Learn how to eliminate NullPointerExceptions using JSpecify annotations and NullAway static analysis in modern Java applications"
 searchKeywords: "JSpecify, NullAway, Java null safety, NullPointerException prevention, static analysis"
+translationSlug: "post10"
 ---
 
 Whether you're a developer just starting with Java or a senior engineer with two decades of experience, the most frequently encountered error is undoubtedly the **NullPointerException**.

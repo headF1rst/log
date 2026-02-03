@@ -6,6 +6,7 @@ tags: "AI"
 thumbnail: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fdzzrfth8zqdnrhbj9538.png"
 description: "Anthropic 엔지니어들이 공유한 가치 있는 프롬프트 엔지니어링 팁과 통찰"
 searchKeywords: "프롬프트 엔지니어링, AI 팁, Anthropic, LLM 베스트 프랙티스"
+translationSlug: "post7"
 ---
 
 [youtube (AI prompt engineering: A deep dive)](https://www.youtube.com/watch?v=T9aRN5JkmL8&t=2463s)에서 Anthropic 엔지니어들이 그들의 프롬프트 작성 팁과 경험을 공유했는데, 여기서 인상 깊었던 몇 가지 포인트를 소개합니다.
