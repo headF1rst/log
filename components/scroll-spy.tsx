@@ -54,16 +54,20 @@ function ScrollSpy() {
       id="scroll-spy"
       className="sm:hidden p-10 fixed top-50 right-0 h-full w-1/5 text-gray-500 dark:text-[#c9d1d9]"
     >
-      {sectionsState?.map((section) => (
-        <li
-          className={classNames(
-            section.nodeName === "H2" ? "pl-5" : "",
-            "mb-3 py-1 dark:text-[#c9d1d9] leading-relaxed"
+      {sectionsState?.map((section, index) => (
+        <React.Fragment key={section.textContent}>
+          {index > 0 && (
+            <li className="border-t border-gray-200 dark:border-gray-700 my-2"></li>
           )}
-          key={section.textContent}
-        >
-          <a href={`#${section.id}`}>{section.textContent}</a>
-        </li>
+          <li
+            className={classNames(
+              section.nodeName === "H2" ? "pl-5" : "",
+              "py-1 dark:text-[#c9d1d9]"
+            )}
+          >
+            <a href={`#${section.id}`}>{section.textContent}</a>
+          </li>
+        </React.Fragment>
       ))}
     </ul>
   );
