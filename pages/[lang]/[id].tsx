@@ -7,6 +7,7 @@ import {
   getSortedPostsData,
   SUPPORTED_LANGS,
   DEFAULT_LANG,
+  extractFAQs,
 } from "../../lib/posts";
 import { getPostLabels, SupportedLang } from "../../lib/i18n";
 import ReactMarkdown from "react-markdown";
@@ -111,41 +112,85 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
 
   const generateJsonLd = () => {
     if (!postData) return null;
-    
-    const jsonLd = {
+
+    const tags = postData.tags ? postData.tags.split(", ") : [];
+    const faqs = extractFAQs(detail);
+
+    const techArticle = {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "TechArticle",
       "headline": postData.title,
       "datePublished": postData.date,
       "dateModified": postData.date,
       "author": {
         "@type": "Person",
-        "name": "Sanha Ko"
+        "name": "Sanha Ko",
+        "url": "https://github.com/headF1rst"
       },
       "description": postData.description || "",
       "image": postData.thumbnail || "",
-      "url": `https://headf1rst.github.io/TIL/${lang}/${postData.id}`,
-      "keywords": postData.tags ? postData.tags.split(", ").join(",") : "",
+      "url": `https://headf1rst.github.io/log/${lang}/${postData.id}`,
+      "keywords": tags.join(", "),
       "inLanguage": lang === "ko" ? "ko-KR" : "en-US",
+      "about": tags.map(tag => ({ "@type": "Thing", "name": tag })),
+      "programmingLanguage": "Java, Kotlin, JavaScript, TypeScript",
       "publisher": {
         "@type": "Organization",
-        "name": "headF1rst",
+        "name": "산하개발실록",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://headf1rst.github.io/TIL/favicon.ico"
+          "url": "https://i.imgur.com/JtjOEf3.png"
         }
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `https://headf1rst.github.io/TIL/${lang}/${postData.id}`
+        "@id": `https://headf1rst.github.io/log/${lang}/${postData.id}`
       }
     };
-    
+
+    const breadcrumbList = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": `https://headf1rst.github.io/log/${lang}`
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": postData.title,
+          "item": `https://headf1rst.github.io/log/${lang}/${postData.id}`
+        }
+      ]
+    };
+
     return (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticle) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbList) }} />
+        {faqs.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": faqs.map(faq => ({
+                  "@type": "Question",
+                  "name": faq.question,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.answer
+                  }
+                }))
+              })
+            }}
+          />
+        )}
+      </>
     );
   };
 
