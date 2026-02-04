@@ -187,7 +187,7 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
         {generateJsonLd()}
       </Head>
       <div className="flex flex-col w-3/5 sm:w-5/6 m-auto pt-20 pb-20 gap-10 dark:bg-[#0d1117] dark:text-[#c9d1d9]">
-        <ScrollSpy />
+        <ScrollSpy key={`${lang}-${postData.id}`} />
         <div className="text-5xl font-bold">{postData.title}</div>
         <div className="flex flex-col gap-2">
           <div className="text-base text-gray-600 dark:text-gray-300">
