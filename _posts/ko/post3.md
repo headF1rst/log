@@ -3,7 +3,7 @@ title: 내가 블로그를 새로 시작하는 이유
 thumbnail: https://i.imgur.com/HbkinoQ.jpg
 section: tech
 tags: 회고
-date: 2022-08-02 10:00
+date: 2022-04-02 10:00
 ---
 
 ## 앵무새식 블로그 글

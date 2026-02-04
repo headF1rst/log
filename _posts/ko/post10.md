@@ -2,7 +2,7 @@
 title: "10억 달러짜리 실수 해결하기: JSpecify와 NullAway를 사용한 최신 Java Null 안전성"
 date: "2025-09-24"
 section: tech
-tags: "Java, JSpecify, Null 안전성, NullPointerException, 정적 분석"
+tags: "JSpecify"
 thumbnail: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftotx4mdagz9nsegld5mr.png"
 description: "JSpecify 어노테이션과 NullAway 정적 분석을 사용하여 현대 Java 애플리케이션에서 NullPointerException을 제거하는 방법 학습"
 searchKeywords: "JSpecify, NullAway, Java null 안전성, NullPointerException 방지, 정적 분석"

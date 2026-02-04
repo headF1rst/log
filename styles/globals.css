@@ -36,6 +36,15 @@ a {
 .markdown-body ul {
   list-style: disc;
 }
+
+.markdown-body ol {
+  list-style: decimal;
+  padding-left: 2rem;
+}
+
+.markdown-body li {
+  margin: 0.5rem 0;
+}
 .markdown-body img{
   margin: 0 auto;
 }
