@@ -76,9 +76,7 @@ function Header() {
           </button>
         </Link>
         <a
-          href={
-            "https://plain-composer-c65.notion.site/29c7640fdf054059b6ea28ed61189bfb"
-          }
+          href="https://www.linkedin.com/in/san0498/"
           target={"_blank"}
           rel="noreferrer"
           className={"hover:text-indigo-300 text-base font-light flex gap-1"}
@@ -150,9 +148,7 @@ function Header() {
             {navLabels.domain}
           </button>
           <a
-            href={
-              "https://plain-composer-c65.notion.site/29c7640fdf054059b6ea28ed61189bfb"
-            }
+            href="https://www.linkedin.com/in/san0498/"
             target={"_blank"}
             rel="noreferrer"
             className={

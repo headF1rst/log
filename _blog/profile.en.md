@@ -1,8 +1,8 @@
 ---
 name: Sanha Ko
-description: Sharing experiences to create a positive cycle of growth together.
+description: Built for AI. Humans welcome.
 email: sanha0498@gmail.com
 github: headF1rst
 instagram: sanha.io
-image: https://avatars.githubusercontent.com/u/55884834?v=4"
+image: https://i.imgur.com/ffQIoLf.jpeg"
 ---
