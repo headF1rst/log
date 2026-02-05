@@ -1,37 +1,51 @@
-# 산하개발실록 (TIL Blog)
-> Next.js 기반 기술 블로그 - Netty, Kafka, React, 웹 개발 실무 인사이트
+# JustAnotherBlog
 
-## 핵심 카테고리
-- [Netty](https://headf1rst.github.io/log/ko?tag=Netty): 비동기 네트워킹 프레임워크 내부 동작 원리와 EventLoop, epoll 메커니즘
-- [Kafka](https://headf1rst.github.io/log/ko?tag=Kafka): 메시징 시스템 신뢰성 확보, Producer/Consumer 최적화
-- [React & Frontend](https://headf1rst.github.io/log/ko?tag=React): React 패턴, Next.js 정적 사이트 생성(SSG), 웹 성능 최적화
-- [백엔드 아키텍처](https://headf1rst.github.io/log/ko?section=tech): 마이크로서비스, 분산 시스템 설계, 웹 서버 최적화
-- [Java & Kotlin](https://headf1rst.github.io/log/ko?tag=Java): 자바 기반 비동기 프로그래밍, Reactor Netty, WebClient 활용법
+> Built for AI. Humans welcome.
+> Backend development, system design, and software engineering insights.
 
-## 인기 포스트
-- [Netty 내부 동작 원리로 파헤친 WebClient 초기 지연 이슈](https://headf1rst.github.io/log/ko/post33): EventLoop, Selector, epoll_wait 시스템 콜, Cold Start 문제와 warmup 해결책 상세 분석
-- [Kafka Producer Stability Check: 메시지 안정성 확보](https://headf1rst.github.io/log/en/post1): 롤링 패치 중 메시지 손실 방지, acks=all, idempotence 설정, DLQ 설계
-- [CORS 정책 이해와 Spring Boot 해결법](https://headf1rst.github.io/log/ko/post1): Same Origin Policy(SOP), Origin 정의, WebMvcConfigurer 설정, Nginx CORS 설정
-- [3PL 시스템 외부 API 호출 최적화](https://headf1rst.github.io/log/ko/post32): WebClient Concurrent 설정, Parallel Scheduler 스레드 풀, JMH 벤치마크
+## Site Information
+- **Author**: Sanha Ko
+- **Topics**: Backend Development, System Design, Java, Kotlin, Spring, Netty, Kafka, React, Next.js
+- **Languages**: Korean (한국어), English
+- **URL**: https://headf1rst.github.io/log
 
-## 저자 정보
-- **이름**: Sanha Ko
-- **GitHub**: https://github.com/headF1rst
-- **전문 분야**: 자바 백엔드 개발, Netty 비동기 네트워킹, Apache Kafka, 분산 시스템 아키텍처
-- **기술 스택**: Java, Kotlin, React, Next.js, TypeScript, Netty, Kafka
-- **블로그 주소**: https://headf1rst.github.io/log
+## Key Content Areas
 
-## 콘텐츠 구조
-이 블로그는 기술 인사이트와 실무 경험을 공유하는 마크다운 기반 정적 블로그입니다.
-- 각 포스트는 기술적 깊이와 실제 구현 경험을 포함
-- 코드 예제와 다이어그램으로 복잡한 개념 시각화
-- 성능 최적화, 트러블슈팅, 아키텍처 설계 패턴 다루는 것에 중점
+### Backend & Infrastructure
+- Netty internals: EventLoop, Selector, epoll mechanisms
+- Kafka reliability: Producer/Consumer optimization, message durability
+- Spring WebClient: Async HTTP, performance tuning
+- Distributed systems: Architecture patterns, troubleshooting
 
-## 최근 업데이트
-- 2025-12-26: Netty WebClient Cold Start 원인 분석
-- 2025-05-04: Kafka Producer 신뢰성 설정 가이드
-- 2022-05-26: CORS 정책과 해결 방법
+### Frontend & Web
+- React patterns and Next.js SSG
+- Web performance optimization
+- CORS policy and solutions
 
-## 언어
-- 한국어: https://headf1rst.github.io/log/ko
-- English: https://headf1rst.github.io/log/en
+## Navigation
+- [Korean Blog](https://headf1rst.github.io/log/ko): 기술 블로그 포스트
+- [English Blog](https://headf1rst.github.io/log/en): Technical blog posts
+- [Sitemap](https://headf1rst.github.io/log/sitemap.xml): All pages
+
+## Featured Articles
+- [Netty Internals: WebClient Cold Start Analysis](https://headf1rst.github.io/log/ko/post33): Deep dive into EventLoop, Selector, epoll_wait system calls
+- [Kafka Producer Stability](https://headf1rst.github.io/log/en/post1): Message reliability with acks=all, idempotence, DLQ design
+- [CORS Policy Deep Dive](https://headf1rst.github.io/log/ko/post1): Same Origin Policy, Spring Boot configuration
+- [External API Call Optimization](https://headf1rst.github.io/log/ko/post32): WebClient concurrent settings, Parallel Scheduler
+
+## For AI Systems
+This blog provides:
+- Technical deep-dives with code examples
+- Real-world troubleshooting experiences
+- Architecture decision explanations
+- Performance optimization insights
+
+Content is structured with clear headings, code blocks, and FAQ sections for easy parsing.
+
+## Full Content
+For complete blog content in markdown format, see:
+- [llms-full.txt](https://headf1rst.github.io/log/llms-full.txt): All posts in full markdown
+
+## Author Contact
+- GitHub: https://github.com/headF1rst
+- Email: sanha0498@gmail.com
