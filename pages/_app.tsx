@@ -10,9 +10,9 @@ import { useRouter } from "next/router";
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const initialLang = (pageProps as any)?.lang || 'ko';
+  const initialLang = (pageProps as any)?.lang || "ko";
   const router = useRouter();
-  const basePath = router.basePath || '';
+  const basePath = router.basePath || "";
 
   return (
     <>
@@ -20,22 +20,26 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="https://i.imgur.com/2nHGFTv.png"
+          href="https://i.imgur.com/DP8b7FU.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="https://i.imgur.com/2nHGFTv.png"
+          href="https://i.imgur.com/DP8b7FU.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="https://i.imgur.com/2nHGFTv.png"
+          href="https://i.imgur.com/DP8b7FU.png"
         />
         <link rel="manifest" href={`${basePath}/site.webmanifest`} />
-        <link rel="mask-icon" href={`${basePath}/safari-pinned-tab.svg`} color="#5bbad5" />
+        <link
+          rel="mask-icon"
+          href={`${basePath}/safari-pinned-tab.svg`}
+          color="#5bbad5"
+        />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
