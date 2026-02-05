@@ -5,6 +5,7 @@
   "homepage": "https://headF1rst.github.io/log",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-llms-full.js",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",

@@ -43,8 +43,8 @@ export default function Home() {
       />
       <meta httpEquiv="refresh" content={`0; url=/ko/`} />
       <Head>
-        <title>산하개발실록</title>
-        <meta name="description" content="기술 블로그" />
+        <title>JustAnotherBlog</title>
+        <meta name="description" content="Built for AI. Humans welcome." />
       </Head>
       <div className="flex items-center justify-center h-screen dark:bg-[#0d1117] dark:text-[#c9d1d9]">
         <div className="text-lg">

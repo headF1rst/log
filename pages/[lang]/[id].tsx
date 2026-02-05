@@ -136,7 +136,7 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
       "programmingLanguage": "Java, Kotlin, JavaScript, TypeScript",
       "publisher": {
         "@type": "Organization",
-        "name": "산하개발실록",
+        "name": "JustAnotherBlog",
         "logo": {
           "@type": "ImageObject",
           "url": "https://i.imgur.com/JtjOEf3.png"
