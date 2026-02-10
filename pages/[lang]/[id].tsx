@@ -104,9 +104,6 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
     if (postData && postData.translationSlug) {
       return p.id === postData.translationSlug;
     }
-    if (postData) {
-      return p.id === postData.id;
-    }
     return false;
   });
 

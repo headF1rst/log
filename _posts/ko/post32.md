@@ -312,13 +312,13 @@ dependencies {
 
 빌드를 실행하면 아래와 같이 API 인터페이스와 스펙 기반의 모델 객체가 자동으로 생성된 것을 확인할 수 있습니다.
 
-<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8c88yzs7f9d64ppz8ttv.png" alt="api generated" width="450"/>
+![Spec](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8c88yzs7f9d64ppz8ttv.png)
 
 ## 커스텀 Mustache 템플릿
 
 OpenAPI Generator가 생성한 API 인터페이스를 확인해보면, 저희의 관심사와는 거리가 먼 다양한 보일러플레이트 코드가 함께 생성되어 다소 장황하게 느껴질 수 있습니다.
 
-<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dv5rkf83nbofpon44mxm.png" alt="OpenAPI Generated Code" style="width: 85%; max-width: 1000px; display: block; margin: 20px auto;"/>
+![Boilerplate](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/dv5rkf83nbofpon44mxm.png)
 
 Mustache 템플릿을 직접 커스터마이징하면, 프로젝트 상황에 맞춰 생성 코드를 한층 더 최적화할 수 있습니다.
 
