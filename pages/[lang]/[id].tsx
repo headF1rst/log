@@ -12,6 +12,7 @@ import {
 import { getPostLabels, SupportedLang } from "../../lib/i18n";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import {
   atomOneLight,
@@ -266,6 +267,7 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
         <div className="markdown-body" style={{ fontSize: "17px" }}>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeRaw]}
             components={{
               code({ inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
