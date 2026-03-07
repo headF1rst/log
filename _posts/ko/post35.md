@@ -1075,7 +1075,7 @@ Implement 단계는 플랜 문서를 입력으로 받아 실제 코드를 작성
 이 단계에서 중요한 것은 한 번에 모든 것을 구현하려 하지 않는 것입니다. 플랜을 Phase 단위로 쪼개놓은 이유가 바로 여기 있습니다. 한 Phase가 끝나면 테스트를 돌려 확인하고, 문제가 없으면 다음 Phase로 넘어갑니다.
 
 <details>
-  <summary>create_plan skill</summary>
+  <summary>implement_plan skill</summary>
 
 ````markdown
 ---

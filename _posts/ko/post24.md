@@ -1,6 +1,6 @@
 ---
 title: Gson 라이브러리 InaccessibleObjectException
-thumbnail: https://media.techmaster.vn/api/static/bq0a8rs51co78aldi4p0/lsRpW5hr
+thumbnail: https://i.imgur.com/3cMycCM.png
 section: tech
 tags: gson, Java
 date: 2024-07-02 10:00
