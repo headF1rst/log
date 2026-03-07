@@ -267,7 +267,7 @@ function PostDetail({ postData, detail, lang, allPostsInOtherLang }: IProps) {
         <div className="markdown-body" style={{ fontSize: "17px" }}>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeRaw]}
+            rehypePlugins={[rehypeRaw as any]}
             components={{
               code({ inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
