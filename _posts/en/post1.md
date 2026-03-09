@@ -6,6 +6,7 @@ tags: "Kafka, Producer, Reliability, Apache Kafka"
 thumbnail: "https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ojt2w7s7rr9kws35r2yg.png"
 description: "Learn how to build fault-tolerant Kafka producers that survive rolling patches and broker failures"
 searchKeywords: "Kafka, producer, reliability, message safety, rolling patch, broker failure"
+translationSlug: "post36"
 ---
 
 During a recent incident, our team observed message loss from a Kafka producer during an Amazon MSK rolling patch. What began as a routine upgrade quickly uncovered hidden weaknesses in our producer's configuration.
