@@ -22,7 +22,7 @@ thumbnail: "https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,
 
 코드와 동기화된 Swagger 문서는 서버가 배포된 이후에 갱신되기 때문에 API 논의 시점에 딜레이가 발생합니다. 이러한 딜레이를 해결하기 위해 별도의 문서를 만들어 공유해야 했습니다. 하지만 작성자마다 문서 포맷과 표현 방식이 달라 일관성을 유지하기 어려웠습니다. 뿐만 아니라 Swagger 문서가 생성되고 나서는 제대로 관리되지 않았기 때문에 신뢰할 수 없는 문서가 되어갔습니다.
 
-결국 API 소통을 위해서는 코드보다 먼저 문서가 선행되어야 합니다. 이러한 접근 방식을 실현하기 위해 등장한 것이 바로 OpenAPI Specification을 활용한 **API-First** 개발 방식입니다.
+결국 API 소통을 위해서는 코드보다 문서가 선행되어야 합니다. 이러한 접근 방식을 실현하기 위해 등장한 것이 바로 OpenAPI Specification을 활용한 **API-First** 개발 방식입니다.
 
 ## OpenAPI Specification이란?
 
