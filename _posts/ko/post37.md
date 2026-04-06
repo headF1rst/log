@@ -2,7 +2,7 @@
 title: "AI 시대, Problem Solver에서 Problem Finder로"
 section: tech
 date: "2026-04-06"
-tags: "AI, 주니어, 엔지니어"
+tags: "AI, 회고"
 thumbnail: "https://i.imgur.com/qxAAYmN.png"
 description: "AI 시대 개발자의 역할"
 searchKeywords: "AI Native, AI, AI 개발자"
