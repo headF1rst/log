@@ -2,7 +2,7 @@
 title: "구독 전엔 아무 일도 일어나지 않는다 - Reactor & WebFlux 멘탈모델 입문"
 section: tech
 date: "2026-04-01"
-tags: ["Reactor, WebFlux"]
+tags: "Reactor, WebFlux"
 thumbnail: "https://i.imgur.com/ZVbHefz.jpeg"
 description: "명령형에 익숙한 개발자를 위한 리액티브 사고법. Mono가 '실행'이 아니라 '실행 계획'이라는 한 가지 개념에서 출발해 조립 시점·구독 시점, 그리고 switchIfEmpty 즉시평가 함정까지 풀어봅니다."
 searchKeywords: "Project Reactor, Mono, Flux, WebFlux, switchIfEmpty, Mono.defer, 조립 시점, 구독 시점, 리액티브"
