@@ -3,7 +3,7 @@ title: "AI 시대, Problem Solver에서 Problem Finder로"
 section: tech
 date: "2026-04-06"
 tags: "AI, 회고"
-thumbnail: "https://i.imgur.com/qxAAYmN.png"
+thumbnail: "https://i.imgur.com/hqFR6qd.jpeg"
 description: "AI 시대 개발자의 역할"
 searchKeywords: "AI Native, AI, AI 개발자"
 ---

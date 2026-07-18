@@ -3,9 +3,9 @@ title: "브라운필드 코드베이스에서 AI 활용하기"
 date: "2026-02-15"
 section: tech
 tags: "AI"
-thumbnail: "https://i.imgur.com/JVQCkSl.jpeg"
-description: "브라운필드 코드베이스에서 AI 코딩 에이전트가 실패하는 이유와 컨텍스트 팽창 문제를 해결하는 방법을 소개합니다. Subagent 설계와 RPI 워크플로우를 통해 Dumb Zone을 피하고 복잡한 레거시 코드베이스에서도 안정적인 결과물을 얻는 방법을 다룹니다."
-searchKeywords: "AI 에이전트 스펙, Spec Driven Development, Claude Code, 코딩 에이전트 활용"
+thumbnail: "https://i.imgur.com/7srfi6E.jpeg"
+description: "브라운필드 코드베이스에서 AI 코딩 에이전트가 실패하는 두 가지 이유(컨텍스트 팽창·리뷰 병목)와, 이를 다루기 위해 제가 운용하는 하네스를 소개합니다. 서브에이전트로 컨텍스트를 격리하고, RPI를 6단계 오케스트레이션 파이프라인으로 확장하며, 정책의 코드화와 Ralph Loop로 사람의 판단을 두 개의 게이트에 집중시키는 방법을 다룹니다."
+searchKeywords: "AI 에이전트 하네스, 오케스트레이터, Ralph Loop, 정책 코드화, Spec Driven Development, Claude Code, 코딩 에이전트 활용, 코드리뷰 병목"
 ---
 
 브라운필드 코드베이스에서 AI 코딩 에이전트를 사용하다 보면 기대에 미치지 못하는 결과를 마주하곤 합니다. 

@@ -3,7 +3,7 @@ title: "PrematurelyClosedException에서 시작된 외부 API 호출 설계 이�
 section: tech
 date: "2026-05-12"
 tags: "MSA, WebClient"
-thumbnail: "https://i.imgur.com/rJIacNo.png"
+thumbnail: "https://i.imgur.com/SotHAgS.png"
 description: "PrematurelyClosedException을 출발점으로, 커넥션 관리·재시도·멱등성·최종 일관성까지 외부 API 호출의 설계 고려사항을 풀어봅니다."
 searchKeywords: "MSA, WebClient, WebFlux, PrematurelyClosedException, 재시도, 멱등성, 보상 트랜잭션"
 ---
