@@ -3,7 +3,7 @@ title: "새 트랜잭션은 열렸는데 커넥션은 그대로였다: read-only
 section: tech
 date: "2025-12-19"
 tags: "Spring, Transaction, AbstractRoutingDataSource, LazyConnectionDataSourceProxy, JPA, 트러블슈팅"
-thumbnail: ""
+thumbnail: "https://i.imgur.com/xyivoH3.jpeg"
 description: "REQUIRES_NEW로 새 트랜잭션을 열었는데도 read-only 커넥션이 사용되어 UPDATE가 실패했습니다. 두 개의 가설을 로그로 검증하고, 스프링 트랜잭션 정리 순서와 커넥션 획득 시점의 어긋남을 원인으로 규명한 뒤 LazyConnectionDataSourceProxy로 해결한 과정을 정리합니다."
 searchKeywords: "cannot execute UPDATE in a read-only transaction, TransactionalEventListener, REQUIRES_NEW, AbstractRoutingDataSource, LazyConnectionDataSourceProxy, 읽기 쓰기 DB 분리, Replica 라우팅, TransactionSynchronizationManager, determineCurrentLookupKey, 스프링 트랜잭션 생명주기"
 ---

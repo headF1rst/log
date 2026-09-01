@@ -3,7 +3,7 @@ title: "종료 코드 137만 남기고 죽은 배치: 힙 밖에서 원인을 �
 section: tech
 date: "2026-06-02"
 tags: "OOM, Apache POI, SXSSF, tmpfs, page cache, Docker, 프로파일링, 트러블슈팅"
-thumbnail: ""
+thumbnail: "https://i.imgur.com/XBrVRLl.jpeg"
 description: "엑셀 다운로드 배치가 종료 코드 137로 강제 종료되었습니다. 프로파일링으로 애플리케이션 로직을 원인에서 제외하고, 컨테이너의 --tmpfs 옵션과 page cache thrashing까지 추적해 원인을 규명한 뒤, 인프라 설정을 바꿀 수 없는 제약 안에서 배치별 JVM 파라미터로 해결한 과정을 정리합니다."
 searchKeywords: "exit code 137, SIGKILL, OOM Killer, Apache POI SXSSF, tmpfs, java.io.tmpdir, TempFileCreationStrategy, page cache thrashing, clean page, anonymous memory, EBS 읽기 급증, 배치 OOM, IntelliJ Profiler, CronJob JVM 파라미터"
 ---
