@@ -3,7 +3,7 @@ title: "정규식 사다리를 걷어내고 Strict Schema로 완성한 결정론
 section: tech
 date: "2026-09-19"
 tags: "AI Agent, LLM Architecture, Semantic Router, Slack Bot, GenAI Design Patterns"
-thumbnail: ""
+thumbnail: "https://headf1rst.github.io/log/images/post41_thumb.jpeg"
 description: "사내 슬랙봇이 복잡한 자연어 요청을 처리하면서 겪은 라우팅 오분류 트러블슈팅 과정과, 키워드 정규식 사다리를 걷어내고 2단계 시맨틱 라우터 및 Grammar 패턴을 도입해 결정론적 신뢰성을 확보한 엔지니어링 기록입니다."
 searchKeywords: "LLM 라우팅, 시맨틱 라우터, 워크플로우와 에이전트, Grammar 패턴, Logits Masking, Structured Outputs, AI 슬랙 봇, Claude Haiku, Plan-Then-Execute, 슬랙봇 아키텍처"
 ---

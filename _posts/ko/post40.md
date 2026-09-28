@@ -3,7 +3,7 @@ title: "AI 시대의 코드리뷰 프로세스 개선: 개발 생산성을 가�
 section: tech
 date: "2026-07-21"
 tags: "Code Review, 개발 문화, AI 도구, Slack Bot, Socket Mode"
-thumbnail: ""
+thumbnail: "https://headf1rst.github.io/log/images/post40_thumb.jpeg"
 description: "코딩 에이전트로 코드 생산 속도는 빨라졌지만 배포까지의 시간은 그대로였습니다. 리뷰 병목을 지표로 확인하고, 리뷰이를 바꾸려던 시도가 왜 실패했는지, 결국 리뷰어를 돕는 슬랙 봇을 만들게 된 과정을 기록합니다."
 searchKeywords: "코드 리뷰 병목, PR 리뷰, 코딩 에이전트, 의도 리뷰, AI 슬랙 봇, Slack Socket Mode, 로컬 개발 머신 상주, git worktree, Claude Agent SDK, 리뷰 자동화"
 ---
